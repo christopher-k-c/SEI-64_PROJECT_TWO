@@ -8,6 +8,9 @@ const User = require("../models/User");
 const bcrypt = require('bcrypt');
 const salt = 10;
 
+// Require ppConfig file because Passport is required inside this file
+const passport = require('../helper/ppConfig');
+
 // HTTP GET - FOR SIGN UP - GET SIGNUP PAGE
 exports.auth_signup_get = (req, res) => {
     res.render("auth/signup");
@@ -28,19 +31,43 @@ exports.auth_signup_post = (req, res) => {
     .save()
     // If save fulfilled do the following - redirect to home page
     .then(() => {
-        res.redirect("/"); 
+        req.flash("success", "You have successfully Signed Up")
+        res.redirect("/auth/signin"); 
+
     }) 
     // else log error and request they try again  
     .catch((err) => {
         console.log(err)
-        res.send("Please, Try again later... ")
+        // res.send("Please, Try again later... ")
+        // res.redirect("/auth/signin"); 
+        req.flash("danger", "You have failed to sign up")
+        res.redirect("/auth/signup"); 
     }) 
 
 }
 
 
-
 // HTTP GET Sign-in Route 
 exports.auth_signin_get = (req, res) => {
-    res.render("auth/signin");
+    res.render("auth/signin");      
 }
+
+exports.auth_signin_post =
+    passport.authenticate('local', {
+        successRedirect: "/",
+        failureRedirect: "/auth/signup"
+    })
+
+
+
+// Logout
+
+exports.auth_logout_get = (req, res, next) => {
+    //Invalidates session  
+    req.logout(function(err) {
+        if (err) { return next(err); }
+        req.flash("success", "You have successfully logged out")
+        res.redirect('/auth/signin');
+    });
+}
+

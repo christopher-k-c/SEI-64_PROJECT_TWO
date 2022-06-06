@@ -10,6 +10,8 @@ require('dotenv').config()
 // Require Express EJS Layouts
 const expressLayouts = require('express-ejs-layouts');
 
+const flash = require('connect-flash')
+
 // Initialize Express
 const app = express();
 
@@ -18,8 +20,6 @@ app.use(express.static("public"));
 
 // Look in views folder for a file named layout.ejs
 app.use(expressLayouts);
- 
-// const flash = require('connect-flash')
 
 // Port Configurations 
 const PORT = process.env.PORT;
@@ -47,6 +47,18 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Initialize Flash
+app.use(flash());
+
+// Sharing the information with all web pages
+app.use(function(req, res, next) {
+    // All messages from flash will be shared on all pages 
+    // Using alerts instead of alert converts alerts into a n array
+    res.locals.alerts = req.flash(); 
+    res.locals.currentUser = req.user;
+    next();
+})
+
 // Importing Routes
 const indexRouter = require("./routes/index");
 const authRouter = require("./routes/auth");
@@ -68,11 +80,11 @@ app.set("view engine", "ejs");
 
 // MongoDB Connection
 mongoose.connect(process.env.mongoDBURL , 
-        {useNewUrlParser: true,
-        useUnifiedTopology: true},
-        () => {
-            console.log("mongodb connected!!!");
-        });
+    {useNewUrlParser: true,
+    useUnifiedTopology: true},
+    () => {
+        console.log("mongodb connected!!!");
+    });
 
 
 

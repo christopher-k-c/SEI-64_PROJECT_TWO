@@ -7,15 +7,58 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 <body>
+
+    <% if(alerts.success) { %>
+
+        <% alerts.success.forEach(function(msg) { %>
+
+        <div class="alert alert-success">
+            <%= msg %>
+        </div>
+        
+        <% }) %>
+    
+    <% } %> 
+
+
+    <% if(alerts.error) { %>
+
+        <% alerts.error.forEach(function(msg) { %>
+
+        <div class="alert alert-danger">
+            <%= msg %>
+        </div>
+        <% }) %>
+    
+    <% } %> 
+     
     
     <nav>
 
         <!-- Index Navigation links -->
         <a href="/">Home</a>
 
-        <!-- Auth Navigation links -->
-        <a href="/auth/signup">Sign Up</a>
-        <a href="/auth/signin">Sign In</a>
+        <!-- Product Navigation Links -->
+        <a href="/product/index" class="btn btn-dark">Product Home</a>
+        <a href="/product/add" class="btn btn-dark">Product Add</a>
+        <a href="/product/detail" class="btn btn-dark">Product Detail</a>
+        <a href="/product/edit" class="btn btn-dark">Product Edit</a>
+
+        <!-- Supplier Navigation Links -->
+        <a href="/supplier/index" class="btn btn-dark">Supplier Home</a>
+        <a href="/supplier/add" class="btn btn-dark">Supplier Add</a>
+        <a href="/supplier/detail" class="btn btn-dark">Supplier Detail</a>
+        <a href="/supplier/edit" class="btn btn-dark">Supplier Edit</a>
+        
+        <!-- Auth Navigation Links -->  
+        <% if(currentUser) { %>
+            Hi <%= currentUser.firstName %> <%= currentUser.lastName %>
+            <a href="/auth/logout" class="btn btn-dark">Log Out</a>
+        <% } else { %>
+            <a href="/auth/signup" class="btn btn-dark">Sign Up</a>
+            <a href="/auth/signin" class="btn btn-dark">Sign In</a>
+        <% } %>
+
     </nav>
 
 <%- body %>
