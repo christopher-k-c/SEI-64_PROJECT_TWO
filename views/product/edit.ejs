@@ -1,0 +1,54 @@
+<div class="wrapper"> 
+    <form method="POST" action="/product/update?_method=PUT">
+     
+        <h2> Edit Product </h2>
+    
+       <div class="row mb-3">
+           <label>Name</label>
+           <input name="name" type="text" value="<%= product.name %>" />
+       </div>
+
+       <div class="row mb-3">
+            <label>Quantity</label>
+            <input name="quantity" type="number" value="<%= product.quantity %>" />
+       </div>
+
+       <div class="row mb-3">
+            <label>Storage</label>
+
+            <select name="storage" class="form-control">
+                <option value="cupboard">Cupboard</option>
+                <option value="fridge">Fridge</option>
+                <option value="freezer">Freezer</option>
+                <option value="other">Other</option>
+            </select>
+    
+       </div>
+
+       <div class="row mb-3">
+            <label>Brand</label>
+            <input name="brand" type="text" value="<%= product.brand %>" />
+        </div>
+
+        <div class="row mb-3">
+            <label>Supplier</label>
+    
+            <select name="supplier" class="form-control">
+    
+               
+            </select>
+    
+        </div>
+
+       <div class="row mb-3">
+           <label>Description</label>
+           <textarea name="description" rows="6"> <%= product.description %> </textarea>
+       </div>
+       
+     
+       <input type="hidden" name="id" value="<%= product._id %>" />
+     
+       <button type="submit" class="btn btn-danger btn-lg"> Update Product </button>
+     
+    </form>
+    </div>

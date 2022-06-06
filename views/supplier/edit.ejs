@@ -1,0 +1,41 @@
+<div class="wrapper"> 
+    <form method="POST" action="/supplier/update?_method=PUT">
+     
+        <h2> Edit Supplier </h2>
+    
+       <div class="row mb-3">
+           <label>Name</label>
+           <input name="name" type="text" value="<%= supplier.name %>" />
+       </div>
+
+       <div class="row mb-3">
+            <label>Phone Number</label>
+            <input name="phoneNumber" type="text" value="<%= supplier.phoneNumber %>" />
+       </div>
+
+       <div class="row mb-3">
+        <label>Address</label>
+        <input name="address" type="text" value="<%= supplier.address %>" />
+   </div>
+
+       <div class="row mb-3">
+            <label>Trading</label>
+
+            <select name="trading" class="form-control">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+    
+       </div>
+
+       <div class="row mb-3">
+           <label>Description</label>
+           <textarea name="description" rows="6"> <%= supplier.description %> </textarea>
+       </div>
+     
+       <input type="hidden" name="id" value="<%= supplier._id %>" />
+     
+       <button type="submit" class="btn btn-danger btn-lg"> Update Supplier </button>
+     
+    </form>
+    </div>
