@@ -16,17 +16,17 @@
     Added by: <%= product.author %>
 </div>
 <div>
-    Created At: <%= moment(product.createdAt).fromNow() %>
+    Created At: <%= moment(product.createdAt).format('LLLL') %>
 </div>
 <div>
-    Updated At: <%= moment(product.updatedAt).fromNow() %>
+    Updated At: <%= moment(product.updatedAt).calendar() %>
 </div>
 
 <% product.supplier.forEach(function(supplier) { %>
     <hr>
-    <div> Type: <%= supplier.name %> </div>
+    <div> Supplier: <%= supplier.name %> </div>
     <div> Phone: <%= supplier.phoneNumber %> </div>
     <div> Address: <%= supplier.address %> </div>
     
     
-    <% })  %>
+    <% }) %>

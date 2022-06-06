@@ -1,0 +1,33 @@
+<h2> List of product </h2>
+
+<table class="table table-striped">
+    <tr class="table-danger">
+        <th> Product </th>
+        <th> Quantity </th>
+        <th> Updated At </th>
+        <th> Storage </th>
+        <th> Brand </th>
+        <th> Supplier </th>
+        <th> Edit </th>
+        <th> Delete </th>
+    </tr>
+
+<% products.forEach(function(product){  %>
+    <tr>
+        <td> <a href="/product/detail?id=<%= product._id %>"><%= product.name %> </a> </td>
+        <td> <%= product.quantity %> </td>
+        <td> <%= moment(product.updatedAt).format('LLLL') %></td>
+        <td> <%= product.storage %> </td>
+        <td> <%= product.brand %> </td>
+        <td> <a href="/supplier/detail?id=<%= product.supplier._id %>"><%= product.supplier.name %> </a> </td>
+
+        <td><a href="/product/edit?id=<%=product._id%>">Edit</a> </td>
+        <td> 
+            <a href="/product/delete?id=<%=product._id%>">Delete</a>
+            
+        </td>
+    </tr>
+    
+    <% }) %>
+
+</table>
