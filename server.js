@@ -24,12 +24,17 @@ app.use(expressLayouts);
 const PORT = process.env.PORT;
 
 
+// Importing routers
+const indexRouter = require('./routes/index');
+const productRouter = require('./routes/products');
+const supplierRouter = require('./routes/suppliers');
 
-// Importing Routes
-// const indexRouter = require("./routes/index");
 
-// Mounting Routes
-// app.use('/', indexRouter);
+// Mounting routers
+app.use('/', indexRouter);
+app.use('/', productRouter);
+app.use('/', supplierRouter);
+
 
 // Listen to Port with callback function.
 app.listen(PORT, () => console.log(`Running on port ${PORT}`));
@@ -46,10 +51,3 @@ mongoose.connect(process.env.mongoDBURL,
         });
 
 
-
-
-
-
-
-// Importing Routes
-const indexRouter = require("./routes/index");
