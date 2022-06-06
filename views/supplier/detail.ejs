@@ -1,0 +1,27 @@
+<div>
+    <div>
+        <h3><%= supplier.name %></h3>
+    </div>
+    <div>Phone Number: <%= supplier.phoneNumber %> </div>
+    <div>Address: <%= supplier.address %> </div>
+    <div>Description: <%= supplier.description %> </div>
+    <div>Website: <%= supplier.website %> </div>
+    
+    <div>Created At: <%= moment(supplier.createdAt).format('LLLL') %> </div>
+    <div>Updated At: <%= moment(supplier.updatedAt).calendar() %> </div>
+    
+    <br>
+
+    <!-- Product available  -->
+
+    <% supplier.product.forEach(function(product) { %>
+        <hr>
+        <div>
+            product: <%= product.name %>
+        </div>
+        <div>
+            Quantity: <%= product.quantity %>
+        </div>
+        <%  }) %>
+
+</div>

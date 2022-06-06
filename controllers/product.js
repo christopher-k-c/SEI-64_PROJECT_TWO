@@ -43,7 +43,7 @@ exports.product_create_post = (req, res) => {
 // Index list //
 exports.product_index_get = (req, res) => {
 
-    Product.find()
+    Product.find().populate('supplier')
     .then(products => {
         res.render('product/index', {products: products, moment})
     })
