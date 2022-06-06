@@ -1,0 +1,57 @@
+<form method="POST" action="/product/add">
+    
+    <h2> Add new product </h2>
+    
+    <div class="row mb-3">
+        <label>Name</label>
+        <input type="text" name="name"/>
+    </div>
+
+    <div class="row mb-3">
+        <label>Quantity</label>
+        <input type="number" name="quantity"/>
+    </div>
+
+    <div class="row mb-3">
+        <label>Brand</label>
+        <input type="text" name="brand"/>
+    </div>
+
+    <div class="row mb-3">
+        <label>Supplier</label>
+
+        <select name="supplier" class="form-control">
+
+            <% suppliers.forEach(function(supplier) { %>
+            <option value="<%= supplier._id %>"><%= supplier.name %></option>
+            <% }) %>
+    
+        </select>
+
+    </div>
+
+    <div class="row mb-3">
+        <label>Description</label>
+        <textarea name="description" rows="6"></textarea>
+    </div>
+
+    <div class="row mb-3">
+        <label>Storage</label>
+
+        <select name="storage" class="form-control">
+            <option value="cupboard">Cupboard</option>
+            <option value="fridge">Fridge</option>
+            <option value="freezer">Freezer</option>
+            <option value="other">Other</option>
+        </select>
+
+    </div>
+    
+    <div class="row mb-3">
+        <label>Added by</label>
+        <input type="text" name="author"/>
+    </div>
+
+    <button type="submit" class="btn btn-danger btn-lg">Create Product</button>
+
+</form>
