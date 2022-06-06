@@ -1,0 +1,32 @@
+<h2> <%= product.name %> </h2>
+
+<div>
+    Quantity: <%= product.quantity %>
+</div>
+<div>
+    Storage: <%= product.storage %>
+</div>
+<div>
+    Brand: <%= product.brand %>
+</div>
+<div>
+    Description: <%= product.description %>
+</div>
+<div>
+    Added by: <%= product.author %>
+</div>
+<div>
+    Created At: <%= moment(product.createdAt).fromNow() %>
+</div>
+<div>
+    Updated At: <%= moment(product.updatedAt).fromNow() %>
+</div>
+
+<% product.supplier.forEach(function(supplier) { %>
+    <hr>
+    <div> Type: <%= supplier.name %> </div>
+    <div> Phone: <%= supplier.phoneNumber %> </div>
+    <div> Address: <%= supplier.address %> </div>
+    
+    
+    <% })  %>

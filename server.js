@@ -50,10 +50,15 @@ app.use(passport.session());
 // Importing Routes
 const indexRouter = require("./routes/index");
 const authRouter = require("./routes/auth");
-
+const productRouter = require('./routes/products');
+const supplierRouter = require('./routes/suppliers');
 // Mounting Routes
 app.use('/', indexRouter);
 app.use('/', authRouter);
+app.use('/', productRouter);
+app.use('/', supplierRouter);
+
+
 
 // Listen to Port with callback function.
 app.listen(PORT, () => console.log(`Running on port ${PORT}`));
