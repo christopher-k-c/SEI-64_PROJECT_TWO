@@ -11294,3 +11294,10 @@ textarea.form-control-lg {
   width: 4rem;
   font-size: 2rem;
 }
+a.tb-centered {
+    text-align: center;
+    color: #000000;
+}
+
+
+

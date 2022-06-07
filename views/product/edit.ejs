@@ -17,10 +17,10 @@
             <label>Storage</label>
 
             <select name="storage" class="form-control">
-                <option value="cupboard">Cupboard</option>
-                <option value="fridge">Fridge</option>
-                <option value="freezer">Freezer</option>
-                <option value="other">Other</option>
+                <option id="cupboard" value="Cupboard">Cupboard</option>
+                <option id="fridge" value="Fridge">Fridge</option>
+                <option id="freezer" value="Freezer">Freezer</option>
+                <option id="other" value="Other">Other</option>
             </select>
     
        </div>
@@ -29,12 +29,14 @@
             <label>Brand</label>
             <input name="brand" type="text" value="<%= product.brand %>" />
         </div>
-
+        
         <div class="row mb-3">
             <label>Supplier</label>
     
             <select name="supplier" class="form-control">
-    
+                <% suppliers.forEach(function(supplier){ %>
+                <option value="<%= supplier._id %>" <%= product.supplier.id === supplier.id ? 'selected' : '' %> ><%= supplier.name %></option>
+                <% }) %>
                
             </select>
     

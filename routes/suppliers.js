@@ -1,12 +1,12 @@
 const express = require('express');
 
-// var methodOverride = require('method-override')
+var methodOverride = require('method-override')
 
 const router = express.Router();
 
 const isLoggedIn = require("../helper/isLoggedIn");
 
-// router.use(methodOverride('_method'));
+router.use(methodOverride('_method'));
 
 router.use(express.urlencoded({extended: true}));
 
