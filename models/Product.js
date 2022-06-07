@@ -7,10 +7,10 @@ const productSchema = mongoose.Schema ({
     description: String,
     quantity: Number,
     author: String,
-    supplier: [{
+    supplier: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Supplier'
-    }],
+    },
 },
 {
     timestamps: true
