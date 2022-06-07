@@ -64,11 +64,14 @@ const indexRouter = require("./routes/index");
 const authRouter = require("./routes/auth");
 const productRouter = require('./routes/products');
 const supplierRouter = require('./routes/suppliers');
+const profileRouter = require('./routes/profiles');
+
 // Mounting Routes
 app.use('/', indexRouter);
 app.use('/', authRouter);
 app.use('/', productRouter);
 app.use('/', supplierRouter);
+app.use('/', profileRouter);
 
 
 

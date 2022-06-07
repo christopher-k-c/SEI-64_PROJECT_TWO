@@ -39,6 +39,16 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true,
         minlength: [6, " Your password is weak."]
+    },
+    telephone: {
+        type: Number,
+        required: false,
+        
+    },
+    userName: {
+        type: String,
+        required: false,
+        
     }
     },
     

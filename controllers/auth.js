@@ -55,7 +55,9 @@ exports.auth_signin_get = (req, res) => {
 exports.auth_signin_post =
     passport.authenticate('local', {
         successRedirect: "/",
-        failureRedirect: "/auth/signup"
+        failureRedirect: "/auth/signin",
+        failureFlash: "Invalid Username",
+        successFlash: "Successful login"
     })
 
 
@@ -64,10 +66,13 @@ exports.auth_signin_post =
 
 exports.auth_logout_get = (req, res, next) => {
     //Invalidates session  
-    req.logout(function(err) {
-        if (err) { return next(err); }
-        req.flash("success", "You have successfully logged out")
-        res.redirect('/auth/signin');
-    });
+    // req.logout(function(err) {
+    //     if (err) { return next(err); }
+    //     req.flash("success", "You have successfully logged out")
+    //     res.redirect('/auth/signin');
+    // });
+    req.logout();
+    req.flash("success", "You are successfully logged out!!");
+    res.redirect("/auth/signin");
 }
 

@@ -1,0 +1,83 @@
+
+
+
+
+
+
+<h2> User Credentials </h2>
+
+<div>
+    <%= currentUser.firstName %>
+</div>
+
+<div>
+    <%= currentUser.lastName %>
+</div>
+
+<div>
+    <%= currentUser.jobTitle %>
+</div>
+
+<div>
+    <%= currentUser.emailAddress %>
+</div>
+
+
+
+
+    <% if((currentUser.telephone == null) && (currentUser.userName == "")) { %>
+        
+        <br>
+
+        <label>Add Telephone Number: </label>
+        <input type="text" name="telephone"/>
+        
+        <br>
+        
+        <hr>
+        
+        <br>
+        
+        <label>Create A User Name: </label>
+        <input type="text" name="userName"/>
+
+
+        <% } else if(currentUser.telephone == null) { %>
+
+            <br>
+
+            <label>Add Telephone Number: </label>
+            <input type="text" name="telephone"/>
+            
+            <br>
+
+            
+
+        <% } else if(currentUser.userName == "") { %>
+
+            <br>
+
+            <label>Create A User Name: </label>
+            <input type="text" name="userName"/>
+
+            <br>
+
+        <% } else { %>
+
+            <br>
+
+            <div>
+                <%= currentUser.telephone %>
+            </div>
+            
+            <br>
+
+            <div>
+                <%= currentUser.userName %>
+            </div>
+
+        <% } %>
+
+
+
+

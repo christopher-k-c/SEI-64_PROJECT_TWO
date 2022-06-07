@@ -2,9 +2,6 @@ const {Supplier} = require("../models/Supplier");
 const moment = require('moment');
 const isLoggedIn = require("../helper/isLoggedIn");
 
-
-
-
 // Create //
 exports.supplier_create_get = (req, res) => {
     res.render("supplier/add");
