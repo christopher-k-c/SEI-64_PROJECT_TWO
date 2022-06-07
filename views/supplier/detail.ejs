@@ -5,7 +5,8 @@
     <div>Phone Number: <%= supplier.phoneNumber %> </div>
     <div>Address: <%= supplier.address %> </div>
     <div>Description: <%= supplier.description %> </div>
-    <div>Website: <%= supplier.website %> </div>
+    <div>Email: <%= supplier.email %> </div>
+    <div>Website: <a href="<%= supplier.website %>"></a> <%= supplier.website %> </div>
     
     <div>Created At: <%= moment(supplier.createdAt).format('LLLL') %> </div>
     <div>Updated At: <%= moment(supplier.updatedAt).calendar() %> </div>

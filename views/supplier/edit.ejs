@@ -14,9 +14,23 @@
        </div>
 
        <div class="row mb-3">
-        <label>Address</label>
-        <input name="address" type="text" value="<%= supplier.address %>" />
-   </div>
+            <label>Address</label>
+            <input name="address" type="text" value="<%= supplier.address %>" />
+       </div>
+
+       <div class="row mb-3">
+            <label>Email Address</label>
+            <input name="email" type="text" value="<%= supplier.email %>" />
+       </div>
+
+        <div class="row mb-3">
+            <label>Website</label>
+            <input name="website" type="url" value="<%= supplier.website %>" 
+            placeholder="https://example.com"
+            pattern="https://.*" size="30"
+            required/>
+        </div>
+
 
        <div class="row mb-3">
             <label>Trading</label>

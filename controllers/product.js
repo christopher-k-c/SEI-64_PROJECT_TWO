@@ -3,7 +3,7 @@ const {Supplier} = require('../models/Supplier');
 const moment = require('moment');
 const isLoggedIn = require("../helper/isLoggedIn");
 
-
+const storageOpt = ["Cupboard", "Fridge", "Freezer", "Other"];
 
 // Create //
 exports.product_create_get = (req, res) => {
@@ -42,10 +42,19 @@ exports.product_create_post = (req, res) => {
 
 // Index list //
 exports.product_index_get = (req, res) => {
+    let sort = {field: null, direction: null}
+    if(req.query.sortBy !== null) {
+        sort.field = req.query.sortBy;
+        sort.direction = ( req.query.srt !== null ) ? req.query.srt : 1
+    }
+    let sorting = {};
+    if(sort.field !== null && sort.direction !== null) {
+        sorting[sort.field]=sort.direction;
+    }
 
-    Product.find().populate('supplier')
+    Product.find({}, null, {sort: sorting}).populate('supplier')
     .then(products => {
-        res.render('product/index', {products: products, moment})
+        res.render('product/index', {products: products, sorting: sort, moment})
     })
     .catch(err => {
         console.log(err);
@@ -81,10 +90,14 @@ exports.product_delete_get = (req, res) => {
 
 // Update //
 exports.product_edit_get = (req, res) => {
+    let promises = [
+        Product.findById(req.query.id).populate("supplier"),
+        Supplier.find()
+    ]
  
-    Product.findById(req.query.id)
-    .then((product) => {
-        res.render("product/edit", {product})
+    Promise.all(promises)
+    .then((values) => {
+        res.render("product/edit", {product: values[0], suppliers: values[1], storage: storageOpt})
     })
     .catch(err => {
         console.log(err)

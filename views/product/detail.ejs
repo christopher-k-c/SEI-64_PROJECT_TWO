@@ -22,11 +22,11 @@
     Updated At: <%= moment(product.updatedAt).calendar() %>
 </div>
 
-<% product.supplier.forEach(function(supplier) { %>
+
     <hr>
-    <div> Supplier: <%= supplier.name %> </div>
-    <div> Phone: <%= supplier.phoneNumber %> </div>
-    <div> Address: <%= supplier.address %> </div>
+    <div> Supplier: <%= product.supplier.name %> </div>
+    <div> Phone: <%= product.supplier.phoneNumber %> </div>
+    <div> Address: <%= product.supplier.address %> </div>
     
     
-    <% }) %>
+    

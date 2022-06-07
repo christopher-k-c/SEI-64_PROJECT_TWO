@@ -5,6 +5,8 @@ const supplierSchema = mongoose.Schema({
     description: String,
     phoneNumber: String,
     address: String,
+    email: String,
+    website: String,
     trading: Boolean,
     product: [{
         type: mongoose.Schema.Types.ObjectId,
