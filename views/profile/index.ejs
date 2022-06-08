@@ -6,78 +6,62 @@
 
 <h2> User Credentials </h2>
 
-<div>
-    <%= currentUser.firstName %>
-</div>
+<br>
 
-<div>
-    <%= currentUser.lastName %>
-</div>
+<a href="/profile/edit">Update your Credentials</a>
 
-<div>
-    <%= currentUser.jobTitle %>
-</div>
+<br>
+<table>
 
-<div>
-    <%= currentUser.emailAddress %>
-</div>
+    <tr>
+        <th>First Name: </th>
+        <td><%= currentUser.firstName %> </td>   
+    </tr>
+    <tr>
+        <th>Last Name: </th>
+        <td><%= currentUser.lastName %></td>
+    </tr>
+    <tr>
+        <th>Job Title: </th>
+        <td><%= currentUser.jobTitle %></td>
+    </tr>
+    <tr>
+        <th>Email Address: </th>
+        <td><%= currentUser.emailAddress %></td>
+    </tr>
+    <tr>
+        <th>Seniority Level: </th>
+        <td><%= currentUser.level %></td>
+    </tr>
+    <tr>
+        <th>Telephone: </th>
+        <td>
+        <% if(currentUser.telephone == null) { %>
 
-
-
-
-    <% if((currentUser.telephone == null) && (currentUser.userName == "")) { %>
-        
-        <br>
-
-        <label>Add Telephone Number: </label>
-        <input type="text" name="telephone"/>
-        
-        <br>
-        
-        <hr>
-        
-        <br>
-        
-        <label>Create A User Name: </label>
-        <input type="text" name="userName"/>
-
-
-        <% } else if(currentUser.telephone == null) { %>
-
-            <br>
-
-            <label>Add Telephone Number: </label>
-            <input type="text" name="telephone"/>
-            
-            <br>
-
-            
-
-        <% } else if(currentUser.userName == "") { %>
-
-            <br>
-
-            <label>Create A User Name: </label>
-            <input type="text" name="userName"/>
-
-            <br>
+            <a href="/profile/edit">Update Telephone</a>
 
         <% } else { %>
 
-            <br>
-
-            <div>
-                <%= currentUser.telephone %>
-            </div>
-            
-            <br>
-
-            <div>
-                <%= currentUser.userName %>
-            </div>
+            <%= currentUser.telephone %>
 
         <% } %>
+        </td>
+    </tr>
+    <tr>
+        <th>Username: </th>
+        <td>
+        <% if(currentUser.userName == "") { %>
 
+            <a href="/profile/edit">Update UserName</a>
 
+        <% } else { %>
+
+            <%= currentUser.userName %>
+
+        <% } %>
+        </td>
+    </tr>
+
+</table>
 
 

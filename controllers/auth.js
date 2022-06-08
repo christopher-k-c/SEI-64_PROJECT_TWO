@@ -4,6 +4,7 @@
 // Api's for User Registration and Authentication 
 const User = require("../models/User");
 
+
 // REQ BCRYPT
 const bcrypt = require('bcrypt');
 const salt = 10;
@@ -19,9 +20,8 @@ exports.auth_signup_get = (req, res) => {
 // HTTP POST - FOR SIGN UP - POST OR SAVE DATA TO DATABASE
 exports.auth_signup_post = (req, res) => {
 
-    // creates an object of the user
+    // creates an object of the user model
     let user = new User(req.body);
-
 
     // HASH PASSWORD
     let hashedPassword = bcrypt.hashSync(req.body.password, salt);
@@ -60,17 +60,10 @@ exports.auth_signin_post =
         successFlash: "Successful login"
     })
 
-
-
 // Logout
 
 exports.auth_logout_get = (req, res, next) => {
-    //Invalidates session  
-    // req.logout(function(err) {
-    //     if (err) { return next(err); }
-    //     req.flash("success", "You have successfully logged out")
-    //     res.redirect('/auth/signin');
-    // });
+    
     req.logout();
     req.flash("success", "You are successfully logged out!!");
     res.redirect("/auth/signin");
