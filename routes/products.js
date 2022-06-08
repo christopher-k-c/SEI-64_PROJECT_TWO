@@ -21,6 +21,7 @@ router.get('/product/detail', productCtrl.product_show_get);
 router.get('/product/delete', isLoggedIn, productCtrl.product_delete_get);
 router.get('/product/edit', isLoggedIn, productCtrl.product_edit_get);
 router.put('/product/update', productCtrl.product_update_put);
+router.get('/product/chart', productCtrl.product_chart_get);
 
 
 module.exports = router;

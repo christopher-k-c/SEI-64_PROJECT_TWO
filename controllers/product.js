@@ -54,7 +54,8 @@ exports.product_index_get = (req, res) => {
 
     Product.find({}, null, {sort: sorting}).populate('supplier')
     .then(products => {
-        res.render('product/index', {products: products, sorting: sort, moment})
+        let scripts = ["https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js", "/script/dashChart.js"]
+        res.render('product/index', {products: products, sorting: sort, scripts: scripts, moment})
     })
     .catch(err => {
         console.log(err);
@@ -112,5 +113,27 @@ exports.product_edit_get = (req, res) => {
     .catch(err => {
         console.log(err)
     })
- }
+ };
+
+ // Charts for index //
+
+exports.product_chart_get = (req, res) => {
+    
+
+    Product.aggregate([
+        {
+            $group: {
+                _id: { $dateToString: {format: "%Y-%m-%d", date: "$updatedAt" } },
+                totalInflux: { $sum: "$quantity"}
+            }
+        },
+        { "$sort": { "_id": 1}}
+    ])
+    .then(products => {
+        res.json(products)
+    })
+    .catch(err => {
+        console.log(err);
+    })
+};
  

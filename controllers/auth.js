@@ -13,7 +13,7 @@ const passport = require('../helper/ppConfig');
 
 // HTTP GET - FOR SIGN UP - GET SIGNUP PAGE
 exports.auth_signup_get = (req, res) => {
-    res.render("auth/signup");
+    res.render("auth/signup", {layout: "layoutAuth"});
 }
 
 // HTTP POST - FOR SIGN UP - POST OR SAVE DATA TO DATABASE
@@ -49,12 +49,12 @@ exports.auth_signup_post = (req, res) => {
 
 // HTTP GET Sign-in Route 
 exports.auth_signin_get = (req, res) => {
-    res.render("auth/signin");      
+    res.render("auth/signin", {layout: "layoutAuth"});      
 }
 
 exports.auth_signin_post =
     passport.authenticate('local', {
-        successRedirect: "/",
+        successRedirect: "/product/index",
         failureRedirect: "/auth/signin",
         failureFlash: "Invalid Username",
         successFlash: "Successful login"
