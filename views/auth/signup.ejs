@@ -1,47 +1,52 @@
+<!-- Sign Up page -->
 
+<div class="card-header"><h3 class="text-center font-weight-light my-4">Sign Up</h3></div>
+    <div class="card-body">
 
-<H1>Sign Up</H1>
+        <form method="POST" action="/auth/signup">
 
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <div class="form-floating mb-3 mb-md-0">
+                        <input class="form-control" id="inputFirstName" type="text" name="firstName" placeholder="Enter your first name" />
+                        <label for="inputFirstName">First name</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input class="form-control" id="inputLastName" type="text" name="lastName" placeholder="Enter your last name" />
+                        <label for="inputLastName">Last name</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-floating mb-3">
+                <input class="form-control" id="inputJobTitle" type="text" name="jobTitle" placeholder="Job title" />
+                <label for="inputJobTitle">Occupation Title</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" id="inputEmail" type="email" name="emailAddress" placeholder="name@example.com" />
+                <label for="inputEmail">Email address</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" id="inputPassword" type="password" name="password" placeholder="Create a password" />
+                <label for="inputPassword">Password</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" id="inputTelephone" type="text" name="telephone" placeholder="Your phone number" />
+                <label for="inputTelephone">Phone Number (Optional)</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" id="inputUsername" type="text" name="userName" placeholder="Choose an username" />
+                <label for="inputUsername">User Name (Optional)</label>
+            </div>            
+            <div class="mt-4 mb-0">
+                <div class="d-grid"><button class="btn btn-primary btn-block" type="submit">Create Account</button></div>
+            </div>
 
-<form method="POST" action="/auth/signup">
+        </form>
 
-
-    <div class="form-group">
-        <label>First Name:</label>
-        <input type="text" name="firstName" class="form-control">
     </div>
-    <div class="form-group">
-        <label>Last Name:</label>
-        <input type="text" name="lastName" class="form-control">
+    <div class="card-footer text-center py-3">
+        <div class="small"><a href="/auth/signin">Have an account? Go to login</a></div>
     </div>
-    <div class="form-group">
-        <label>Occupation Title:</label>
-        <input type="text" name="jobTitle" class="form-control">
-    </div>
-    <div class="form-group">
-        <label>Email Address:</label>
-        <input type="email" name="emailAddress" class="form-control">
-    </div>
-    <div class="form-group">
-        <label>Password:</label>
-        <input type="password" name="password" class="form-control">
-    </div>
-    <br>
-    
-    <div>Optional Info</div>
-    <div class="form-group">
-        <label>Telephone:</label>
-        <input type="number" name="telephone" class="form-control">
-    </div>
-    <div class="form-group">
-        <label>User Name:</label>
-        <input type="text" name="userName" class="form-control">
-    </div>
-
-    <hr>
-
-    <br>
-
-    <button type="submit">Sign Up!</button>
-
-</form>

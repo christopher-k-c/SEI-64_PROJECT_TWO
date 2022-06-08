@@ -1,57 +1,69 @@
-<form method="POST" action="/product/add">
-    
-    <h2> Add new product </h2>
-    
-    <div class="row mb-3">
-        <label>Name</label>
-        <input type="text" name="name"/>
-    </div>
+<div class="container-fluid px-4 mt-4">
 
-    <div class="row mb-3">
-        <label>Quantity</label>
-        <input type="number" name="quantity"/>
-    </div>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="/product/index" class="text-dark">Dashboard</a></li>
+        <li class="breadcrumb-item active">Product / Add New</li>
+    </ol>
+    <div class="card mb-4">
+        <div class="card-body">
 
-    <div class="row mb-3">
-        <label>Brand</label>
-        <input type="text" name="brand"/>
-    </div>
 
-    <div class="row mb-3">
-        <label>Supplier</label>
+<!-- Form for Add new product -->
 
-        <select name="supplier" class="form-control">
+            <div class="card-header"><h3 class="text-center font-weight-light my-4">New item</h3></div>
+                <div class="card-body">
 
-            <% suppliers.forEach(function(supplier) { %>
-            <option value="<%= supplier._id %>"><%= supplier.name %></option>
-            <% }) %>
-    
-        </select>
+                    <form method="POST" action="/product/add">
 
-    </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="inputName" type="text" name="name" placeholder="Name" />
+                            <label for="inputName">Item Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="inputQuantity" type="number" name="quantity" placeholder="Quantity" />
+                            <label for="inputQuantity">Quantity</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="inputBrand" type="text" name="brand" placeholder="Brand" />
+                            <label for="inputBrand">Brand</label>
+                        </div>
+                        
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="floatingSelect" name="supplier" aria-label="Floating label select example">
 
-    <div class="row mb-3">
-        <label>Description</label>
-        <textarea name="description" rows="6"></textarea>
-    </div>
+                                <option selected>Choose here</option>
+                                <% suppliers.forEach(function(supplier) { %>
+                                <option value="<%= supplier._id %>"><%= supplier.name %></option>
+                                <% }) %>
+                            </select>
+                            <label for="floatingSelect">Select a Supplier</label>
+                            <a class="small" href="/supplier/add">Didn't find a supplier? Add a new here</a>
+                        </div>
 
-    <div class="row mb-3">
-        <label>Storage</label>
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="floatingSelect" name="storage" aria-label="Floating label select example">
+                                <option selected>Select here</option>
+                                <option value="Cupboard">Cupboard</option>
+                                <option value="Fridge">Fridge</option>  
+                                <option value="Freezer">Freezer</option>
+                                <option value="Other">Other</option>                            
+                            </select>
+                            <label for="floatingSelect">Storage</label>
+                        </div>
 
-        <select name="storage" class="form-control">
-            <option value="Cupboard">Cupboard</option>
-            <option value="Fridge">Fridge</option>
-            <option value="Freezer">Freezer</option>
-            <option value="Other">Other</option>
-        </select>
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control" id="inputDescription" rows="6" name="description" placeholder="Description"></textarea>
+                            <label for="inputDescription">Description</label>
+                        </div>
 
-    </div>
-    
-    <div class="row mb-3">
-        <label>Your name or ID</label>
-        <input type="text" name="author"/>
-    </div>
+                        <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                            <button class="btn btn-primary" type="submit">Create Product</button>
+                        </div>
 
-    <button type="submit" class="btn btn-danger btn-lg">Create Product</button>
+                    </form>
+                </div>
 
-</form>
+            </div>
+        </div>
+    <div style="height: 100vh"></div>
+</div>
