@@ -24,26 +24,7 @@
         </form>
         <!-- Top Navbar LoggedIn-->
 
-        <!-- Chris Start -->
-        <% if(currentUser) { %>
-            Hi <%= currentUser.firstName %>
-            <a href="/auth/logout" class="btn btn-dark">Log Out</a>
-            <a href="/profile/index" class="btn btn-dark">Profile Page</a>
-        <% } else { %>
-            <a href="/auth/signup" class="btn btn-dark">Sign Up</a>
-            <a href="/auth/signin" class="btn btn-dark">Sign In</a>
-        <% } %>
-
-        <!-- Hides all user profiles from guest and junior level users -->
-        <% if(!currentUser) { %>
-
-            <% } else if (currentUser.level == "admin"){ %> 
-
-            <a href="/profile/users" class="btn btn-danger">User Database</a>
-    
-        <% } %>
-
-        <!-- chris End -->
+        
 
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <li class="nav-item dropdown">
@@ -59,7 +40,7 @@
                 </li>
             </ul>
 
-        <% } %>
+
  
     </nav>
 
