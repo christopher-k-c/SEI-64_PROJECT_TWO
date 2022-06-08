@@ -1,0 +1,51 @@
+
+
+
+<h2>Update Employee Information </h2>
+
+
+<table class="table table-striped">
+    <tr>
+        <th>Employee First Name</th>
+        <th>Employee Last Name</th>
+        <th>Employee Job Title</th>
+        <th>Seniority Level</th>
+        <th>Email Address</th>
+        <th>Telephone</th>
+        <th>Username</th>
+        <th>Created At</th>
+        <th>Updated At</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+
+    <% profiles.forEach(function(profile) { %>
+        
+        <tr>
+            <td>
+            
+                <a href="/profile/editUser?id=<%=profile.id %>"> <%= profile.firstName %></td> </a>
+                
+                
+            <td><%= profile.lastName %></td>
+            <td><%= profile.jobTitle %></td>
+            <td><%= profile.level %></td>
+            <td><%= profile.emailAddress %></td>
+            <td><%= profile.telephone %></td>
+            <td><%= profile.userName %></td>
+
+            <td><%= moment(profile.createdAt).fromNow() %></td>
+            <td><%= moment(profile.updatedAt).fromNow() %></td>
+
+            <td><a href="/profile/editUser?id=<%=profile._id%>">Edit</a></td>
+            <td><a href="/profile/delete?id=<%=profile._id%>">Delete</a></td>
+            
+        </tr>
+        
+    
+    <% }) %>
+
+    
+
+</table>
+

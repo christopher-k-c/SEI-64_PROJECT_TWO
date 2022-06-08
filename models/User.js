@@ -1,7 +1,6 @@
 // REQUIRING MONGOOSE
 const mongoose = require('mongoose')
 
-
 //BCRYPT WILL GO HERE
 
 const bcrypt = require('bcrypt');
@@ -28,6 +27,10 @@ const userSchema = mongoose.Schema({
         minlength: [3, "First name must be more than three characters"],
         maxlength: [70, "Job Title must be less than 100 Characters"]
     },
+    level: {
+        type: String,
+        required: true
+    },
     emailAddress: {
         type: String,
         required: true,
@@ -42,18 +45,14 @@ const userSchema = mongoose.Schema({
     },
     telephone: {
         type: Number,
-        required: false,
-        
+        required: false,    
     },
     userName: {
         type: String,
-        required: false,
-        
+        required: false
     }
     },
     
-
-
 {
  timestamps: true
 
@@ -70,7 +69,8 @@ userSchema.methods.verifyPassword = function(password) {
 }
 
 // BUILDING MODEL OF USER SCHEMA
-const User = mongoose.model("User", userSchema);
+// CHANGED "User" to "user"
+const User = mongoose.model("user", userSchema);
 
 // EXPORTING USER FOR US TO USE IN OTHER FILES
 module.exports = User;

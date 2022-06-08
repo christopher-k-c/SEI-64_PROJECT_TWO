@@ -6,63 +6,161 @@
     <title>ICS Application</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+    <link href="/css/panel.css" rel="stylesheet" />
 </head>
 <body>
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" href="/product/index">Inventory Control</a>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0 text-light" id="sidebarToggle" href="#!"><i class="bi bi-list"></i></button>
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <div class="input-group">
+                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="bi bi-search"></i></i></button>
+            </div>
+        </form>
+        <!-- Top Navbar LoggedIn-->
 
-    <% if(alerts.success) { %>
-
-        <% alerts.success.forEach(function(msg) { %>
-
-        <div class="alert alert-success">
-            <%= msg %>
-        </div>
         
-        <% }) %>
-    
-    <% } %> 
 
 
-    <% if(alerts.error) { %>
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="text-align:center">
+                        
+                        <li class="dropdown-item text-secondary">Hi <%= currentUser.firstName %> <%= currentUser.lastName %> </li>                
+                        <li><a class="dropdown-item" href="/profile/index">See credentials</a></li>
+                        <li><a class="dropdown-item" href="/profile/edit">Update profile</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="/auth/logout">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
 
-        <% alerts.error.forEach(function(msg) { %>
 
-        <div class="alert alert-danger">
-            <%= msg %>
-        </div>
-        <% }) %>
-    
-    <% } %> 
-     
-    
-    <nav>
-
-        <!-- Index Navigation links -->
-        <a href="/">Home</a>
-
-        <!-- Product Navigation Links -->
-        <a href="/product/index" class="btn btn-dark">Product Home</a>
-        <a href="/product/add" class="btn btn-dark">Product Add</a>
-        <!-- <a href="/product/detail" class="btn btn-dark">Product Detail</a>
-        <a href="/product/edit" class="btn btn-dark">Product Edit</a> ---- TO BE REMOVED --> 
-
-        <!-- Supplier Navigation Links -->
-        <a href="/supplier/index" class="btn btn-dark">Supplier Home</a>
-        <a href="/supplier/add" class="btn btn-dark">Supplier Add</a>
-        <!-- <a href="/supplier/detail" class="btn btn-dark">Supplier Detail</a>
-        <a href="/supplier/edit" class="btn btn-dark">Supplier Edit</a> ---- TO BE REMOVED -->
-        
-        <!-- Auth Navigation Links -->  
-        <% if(currentUser) { %>
-            Hi <%= currentUser.firstName %> <%= currentUser.lastName %>
-            <a href="/auth/logout" class="btn btn-dark">Log Out</a>
-        <% } else { %>
-            <a href="/auth/signup" class="btn btn-dark">Sign Up</a>
-            <a href="/auth/signin" class="btn btn-dark">Sign In</a>
-        <% } %>
-
+ 
     </nav>
 
-<%- body %>
+    <!-- Lateral navbar -->
+
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">Core</div>
+                        <a class="nav-link" href="/product/index">
+                            <div class="sb-nav-link-icon"><i class="bi bi-speedometer2"></i></div>
+                            Dashboard
+                        </a>
+                        <div class="sb-sidenav-menu-heading">Controls</div>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="bi bi-card-list"></i></div>
+                            Products
+                            <div class="sb-sidenav-collapse-arrow"><i class="bi bi-chevron-down text-light"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="/product/add">Add New Product</a>
+                                <a class="nav-link" href="/product/index">See Index</a>
+                            </nav>
+                        </div>
+                        
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseSupplier" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="bi bi-truck"></i></div>
+                            Suppliers
+                            <div class="sb-sidenav-collapse-arrow"><i class="bi bi-chevron-down text-light"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseSupplier" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="/supplier/add">Add New</a>
+                                <a class="nav-link" href="/supplier/index">See All</a>
+                            </nav>
+                        </div>
+
+
+                        <div class="sb-sidenav-menu-heading">Addons (coming soon)</div>
+                        <a class="nav-link" href="#">
+                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                            Charts
+                        </a>
+                        <a class="nav-link" href="#">
+                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                            Tables
+                        </a>
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer">
+                    <div class="small">Logged in as:</div>
+                    
+
+                    <!-- Footer Auth Navigation Links -->  
+                <% if(currentUser) { %>
+                    <%= currentUser.firstName %> <%= currentUser.lastName %>
+                    <a href="/auth/logout" class="text-muted">| Log Out</a>
+                <% } else { %>
+                    <a href="/auth/signup" class="text-muted">Sign Up | </a>             
+                    <a href="/auth/signin" class="text-muted">Sign In</a>
+                <% } %>
+
+
+                </div>
+            </nav>
+        </div>
+
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+               
+                    <% if(alerts.success) { %>
+
+                        <% alerts.success.forEach(function(msg) { %>
+                
+                        <div class="alert alert-success">
+                            <%= msg %>
+                        </div>
+                        
+                        <% }) %>
+                    
+                    <% } %> 
+                
+                
+                    <% if(alerts.error) { %>
+                
+                        <% alerts.error.forEach(function(msg) { %>
+                
+                        <div class="alert alert-danger">
+                            <%= msg %>
+                        </div>
+                        <% }) %>
+                    
+                    <% } %> 
+
+        
+
+                    <%- body %>
+
+
+                </div>
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Inventory Control - Demo site</div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+     
 
 
 
@@ -71,8 +169,21 @@
 
 
 
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+    <script src="/script/main.js"></script>
+    <script src="/script/panel.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-<script src="/script/main.js"></script>
+    
+        <% if(locals.scripts) { %>
+            <% scripts.forEach(function(script){ %>
+            <script src=" <%= scripts %> "></script>
+            <% }) %>
+        <% } %>
+
+        
 </body>
 </html>
+
+<!-- test -->

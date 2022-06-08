@@ -1,6 +1,8 @@
 // Require Express
 const express = require('express');
 
+
+
 // Require Mongoose
 const mongoose = require('mongoose')
 
@@ -14,6 +16,9 @@ const flash = require('connect-flash')
 
 // Initialize Express
 const app = express();
+
+
+
 
 // Look for all static files (CSS, JS, images, Videos, Audio) in public folder.
 app.use(express.static("public"));
@@ -53,11 +58,14 @@ app.use(flash());
 // Sharing the information with all web pages
 app.use(function(req, res, next) {
     // All messages from flash will be shared on all pages 
-    // Using alerts instead of alert converts alerts into a n array
+    // Using alerts instead of alert converts alerts into an array
     res.locals.alerts = req.flash(); 
     res.locals.currentUser = req.user;
     next();
 })
+
+// From Saad Tutorial
+app.use(express.json());
 
 // Importing Routes
 const indexRouter = require("./routes/index");
@@ -65,6 +73,7 @@ const authRouter = require("./routes/auth");
 const productRouter = require('./routes/products');
 const supplierRouter = require('./routes/suppliers');
 const profileRouter = require('./routes/profiles');
+
 
 // Mounting Routes
 app.use('/', indexRouter);
@@ -75,11 +84,14 @@ app.use('/', profileRouter);
 
 
 
+
 // Listen to Port with callback function.
 app.listen(PORT, () => console.log(`Running on port ${PORT}`));
 
 // NodeJS to look in a folder called views for all EJS files
 app.set("view engine", "ejs");
+
+
 
 // MongoDB Connection
 mongoose.connect(process.env.mongoDBURL , 
@@ -89,6 +101,6 @@ mongoose.connect(process.env.mongoDBURL ,
         console.log("mongodb connected!!!");
     });
 
-
+    
 
 
