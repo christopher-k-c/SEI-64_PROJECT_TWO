@@ -5,6 +5,8 @@ const User = require("../models/User");
 
 const moment = require('moment');
 
+const bcrypt = require('bcrypt');
+
 
 
 // HTTP GET - Get Information To User Profile Index 
@@ -26,6 +28,9 @@ exports.profile_edit_get = (req, res) => {
 
 // HTTP PUT - Posts information updated by the current user
 exports.profile_edit_put = (req, res) => {
+
+    let hashedPassword = bcrypt.hashSync(req.body.password, 10);
+    req.body.password = hashedPassword;
 
     User.findByIdAndUpdate(req.body.id, req.body)
     .then(() => {
@@ -64,6 +69,10 @@ exports.profile_edituser_get = (req, res) => {
 
 // HTTP GET - Admin to Update user information
 exports.profile_updateuser_put = (req, res) => {
+    
+    let hashedPassword = bcrypt.hashSync(req.body.password, 10);
+    req.body.password = hashedPassword;
+    
     User.findByIdAndUpdate(req.body.id, req.body)
     .then(() => {
     res.redirect('/profile/users')

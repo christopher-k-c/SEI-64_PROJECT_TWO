@@ -36,55 +36,12 @@
         <table id="datatablesSimple">
             <thead>
             <tr>
-                <th> Item 
-                    <% if(sorting.field !== 'name') { %>
-                        <a class="text-dark" href="/product/index?sortBy=name&srt=1" >  
-                    <% } else { %>
-                        <a class="text-dark" href="/product/index?sortBy=name&srt=<%= (sorting.direction == 1) ? -1 : 1 %>" > 
-                    <% } %>
-                        </a>
-                </th>
-                <th> Quantity 
-                    <% if(sorting.field !== 'quantity') { %>
-                        <a class="text-dark" href="/product/index?sortBy=quantity&srt=-1" >  
-                    <% } else { %>
-                        <a class="text-dark" href="/product/index?sortBy=quantity&srt=<%= (sorting.direction == 1) ? -1 : 1 %>" > 
-                    <% } %>
-                        </a> 
-                </th>
-                <th> Updated At 
-                    <% if(sorting.field !== 'updatedAt') { %>
-                        <a class="text-dark" href="/product/index?sortBy=updatedAt&srt=1" >  
-                    <% } else { %>
-                        <a class="text-dark" href="/product/index?sortBy=updatedAt&srt=<%= (sorting.direction == 1) ? -1 : 1 %>" > 
-                    <% } %>
-                        </a> 
-                </th>
-                <th> Storage 
-                    <% if(sorting.field !== 'storage') { %>
-                        <a class="text-dark" href="/product/index?sortBy=storage&srt=1" >  
-                    <% } else { %>
-                        <a class="text-dark" href="/product/index?sortBy=storage&srt=<%= (sorting.direction == 1) ? -1 : 1 %>" > 
-                    <% } %>
-                        </a>
-                </th>
-                <th> Brand 
-                    <% if(sorting.field !== 'brand') { %>
-                        <a class="text-dark" href="/product/index?sortBy=brand&srt=1" >  
-                    <% } else { %>
-                        <a class="text-dark" href="/product/index?sortBy=brand&srt=<%= (sorting.direction == 1) ? -1 : 1 %>" > 
-                    <% } %>
-                        </a>
-                </th>
-                <th> Supplier 
-                    <% if(sorting.field !== 'supplier') { %>
-                        <a class="text-dark" href="/product/index?sortBy=supplier&srt=1" >  
-                    <% } else { %>
-                        <a class="text-dark" href="/product/index?sortBy=supplier&srt=<%= (sorting.direction == 1) ? -1 : 1 %>" > 
-                    <% } %>
-                        </a>
-                </th>
-
+                <th> Item </th>
+                <th> Quantity </th>
+                <th> Updated At </th>
+                <th> Storage </th>
+                <th> Brand </th>
+                <th> Supplier </th>
                 <th> Edit </th>
                 <th> Delete </th>
 

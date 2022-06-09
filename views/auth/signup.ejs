@@ -1,5 +1,17 @@
 <!-- Sign Up page -->
 
+<% if(alerts.error) { %>
+            
+    <% alerts.error.forEach(function(msg) { %>
+
+    <div class="alert alert-danger">
+        <%= msg %>
+    </div>
+    <% }) %>
+
+<% } %> 
+
+
 <div class="card-header"><h3 class="text-center font-weight-light my-4">Sign Up</h3></div>
     <div class="card-body">
 
@@ -8,35 +20,45 @@
             <div class="row mb-3">
                 <div class="col-md-6">
                     <div class="form-floating mb-3 mb-md-0">
-                        <input class="form-control" id="inputFirstName" type="text" name="firstName" placeholder="Enter your first name" />
-                        <label for="inputFirstName">First name</label>
+                        <input class="form-control" id="inputFirstName" type="text" name="firstName" placeholder="Enter your first name" required/>
+                        <label for="inputFirstName">First Name</label>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <input class="form-control" id="inputLastName" type="text" name="lastName" placeholder="Enter your last name" />
-                        <label for="inputLastName">Last name</label>
+                        <input class="form-control" id="inputLastName" type="text" name="lastName" placeholder="Enter your last name" required/>
+                        <label for="inputLastName">Last Name</label>
                     </div>
                 </div>
             </div>
-            
             <div class="form-floating mb-3">
-                <input class="form-control" id="inputJobTitle" type="text" name="jobTitle" placeholder="Job title" />
-                <label for="inputJobTitle">Occupation Title</label>
+                <select class="form-select" id="floatingSelect" name="jobTitle" aria-label="Floating label select example" required>
+                    <option selected>Select here</option>
+                    <option value="ExecutiveChef">Executive Chef</option>
+                    <option value="headChef">Head Chef</option>
+                    <option value="sousChef">Sous Chef</option>
+                    <option value="stationChef ">Station Chef</option>
+                    <option value="juniorChef">Junior Chef</option>
+                    <option value="kitchenPorter">Kitchen Porter</option>
+                    <option value="dishWash">Dishwasher</option>                                          
+                </select>
+                <label for="floatingSelect">Occupation Title</label>
             </div>
             <div class="form-floating mb-3">
-                <input class="form-control" id="inputEmail" type="email" name="emailAddress" placeholder="name@example.com" />
+                <input class="form-control" id="inputEmail" type="email" name="emailAddress" placeholder="name@example.com" required/>
                 <label for="inputEmail">Email address</label>
             </div>
             <div class="form-floating mb-3">
-                <input class="form-control" id="inputPassword" type="password" name="password" placeholder="Create a password" />
+                <input class="form-control" id="inputPassword" type="password" name="password" placeholder="Create a password" required/>
                 <label for="inputPassword">Password</label>
             </div>
             <div class="form-floating mb-3">
-                <select name="level" id="">
-                    <option name="employee">Employee</option>
-                    <option name="admin">Admin</option>
+                <select class="form-select" id="floatingSelect" name="level" aria-label="Floating label select example">
+                    <!-- <option selected>Select here</option> -->
+                    <option value="admin">Administrator - demo</option>
+                    <option value="employee" selected>Employee</option>                                             
                 </select>
+                <label for="floatingSelect">Access level</label>
             </div>
             <div class="form-floating mb-3">
                 <input class="form-control" id="inputTelephone" type="text" name="telephone" placeholder="Your phone number" />
@@ -54,7 +76,6 @@
 
     </div>
 
-    
-    <div class="card-footer text-center py-3">
-        <div class="small"><a href="/auth/signin">Have an account? Go to login</a></div>
-    </div>
+<div class="card-footer text-center py-3">
+    <div class="small"><a href="/auth/signin">Have an account? Go to login</a></div>
+</div>

@@ -14,6 +14,9 @@ const passport = require('../helper/ppConfig');
 
 // HTTP GET - FOR SIGN UP - GET SIGNUP PAGE
 exports.auth_signup_get = (req, res) => {
+    // if(req.query.error) {
+    //     req.flash("danger", "You have failed to sign up")
+    // }
     res.render("auth/signup", {layout: "layoutAuth"});
 }
 
@@ -23,9 +26,13 @@ exports.auth_signup_post = (req, res) => {
     // creates an object of the user model
     let user = new User(req.body);
 
+    
+
     // HASH PASSWORD
     let hashedPassword = bcrypt.hashSync(req.body.password, salt);
     user.password = hashedPassword;
+
+
     // First, try to save user to database
     user
     .save()
@@ -56,7 +63,7 @@ exports.auth_signin_post =
     passport.authenticate('local', {
         successRedirect: "/product/index",
         failureRedirect: "/auth/signin",
-        failureFlash: "Invalid Username",
+        failureFlash: "Invalid Username or Password",
         successFlash: "Successful login"
     })
 

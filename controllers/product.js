@@ -48,20 +48,11 @@ exports.product_create_post = (req, res) => {
 
 // Index list //
 exports.product_index_get = (req, res) => {
-    let sort = {field: null, direction: null}
-    if(req.query.sortBy !== null) {
-        sort.field = req.query.sortBy;
-        sort.direction = ( req.query.srt !== null ) ? req.query.srt : 1
-    }
-    let sorting = {};
-    if(sort.field !== null && sort.direction !== null) {
-        sorting[sort.field]=sort.direction;
-    }
-
-    Product.find({}, null, {sort: sorting}).populate('supplier')
+    
+    Product.find({}, null).populate('supplier')
     .then(products => {
         let scripts = ["https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js", "/script/dashChart.js"]
-        res.render('product/index', {products: products, sorting: sort, scripts: scripts, moment})
+        res.render('product/index', {products: products, scripts: scripts, moment})
     })
     .catch(err => {
         console.log(err);
