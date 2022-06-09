@@ -11,7 +11,11 @@ const supplierSchema = mongoose.Schema({
     product: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Product'
-    }]
+    }],
+    author: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }
 },
 {
     timestamps: true

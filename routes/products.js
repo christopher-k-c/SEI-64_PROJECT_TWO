@@ -22,6 +22,7 @@ router.get('/product/delete', isLoggedIn, productCtrl.product_delete_get);
 router.get('/product/edit', isLoggedIn, productCtrl.product_edit_get);
 router.put('/product/update', isLoggedIn, productCtrl.product_update_put);
 router.get('/product/chart', isLoggedIn, productCtrl.product_chart_get);
+router.get('/product/pieChart', isLoggedIn, productCtrl.product_chart_get);
 
 
 
