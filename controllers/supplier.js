@@ -84,16 +84,22 @@ exports.supplier_update_put = (req, res) =>{
 
 // Pie Chart for index //
 
-exports.product_chart_get = (req, res) => {
+exports.supplier_chart_get = (req, res) => {
     
+    let results = []
 
-    Supplier.find()
+    Supplier.find().populate("product")
     .then(suppliers => { 
         suppliers.forEach(( supplier) => {
-
+        
+            let result = {
+                name: supplier.name,
+                totalProducts: supplier.product.length
+            }
+            results.push(result)
         })
-
-        res.json(products)
+        
+        res.json(results)
     })
     .catch(err => {
         console.log(err);

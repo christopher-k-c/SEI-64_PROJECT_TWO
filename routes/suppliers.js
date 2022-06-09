@@ -19,5 +19,6 @@ router.get("/supplier/detail", isLoggedIn, supplierCtrl.supplier_show_get);
 router.get("/supplier/delete", isLoggedIn, supplierCtrl.supplier_delete_get);
 router.get("/supplier/edit", isLoggedIn, supplierCtrl.supplier_edit_get);
 router.put("/supplier/update", isLoggedIn, supplierCtrl.supplier_update_put);
+router.get('/supplier/pieChart', isLoggedIn, supplierCtrl.supplier_chart_get);
 
 module.exports = router;

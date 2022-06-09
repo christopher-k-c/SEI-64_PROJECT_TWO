@@ -40,8 +40,8 @@ exports.product_create_post = (req, res, next) => {
         Supplier.findById(req.body.supplier, (error, supplier) => {
             supplier.product.push(product);
             supplier.save();
-        })
-       
+        });
+      
 
         res.redirect('/product/index');
     })
