@@ -8,7 +8,7 @@ There were approximately 5,000 micro, Small and Medium Enterprises in the food a
 ![ERD](/assets/ERD-SEI-project-2.jpg)
 ### Dashboard wireframe
 ![WireFarmes](/assets/dashboard.png)
-![WireFarmes](/assets/overview.png)
+![WireFarmes](/assets/detail.png)
 
 ## Technologies used
 
