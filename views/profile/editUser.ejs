@@ -1,0 +1,81 @@
+
+<div class="container-fluid px-4 mt-4">
+
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="/profile/index" class="text-dark">Profile</a></li>
+        <li class="breadcrumb-item active">My Account / Update </li>
+    </ol>
+
+    <div class="card mb-4">
+        <div class="card-body">
+
+
+         <!-- Admin Edit profile user -->
+
+               
+            <form class="form-dashboard" method="POST" action="/profile/updateUser?_method=PUT">
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <input class="form-control" id="inputFirstName" type="text" name="firstName" value="<%= profiles.firstName %>" />
+                            <label for="inputFirstName">First Name</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input class="form-control" id="inputLastName" type="text" name="lastName" value="<%= profiles.lastName %>" />
+                            <label for="inputLastName">Last Name</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-floating mb-3">
+                    <select class="form-select" id="floatingSelect" name="jobTitle" aria-label="Select the job title">
+                        <option selected>Select here</option>
+                        <option value="ExecutiveChef">Executive Chef</option>
+                        <option value="headChef">Head Chef</option>
+                        <option value="sousChef">Sous Chef</option>
+                        <option value="stationChef ">Station Chef</option>
+                        <option value="juniorChef">Junior Chef</option>
+                        <option value="kitchenPorter">Kitchen Porter</option>
+                        <option value="dishWash">Dishwasher</option>                                          
+                    </select>
+                    <label for="floatingSelect">Occupation Title</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input class="form-control" id="inputEmail" type="email" name="emailAddress" value="<%= profiles.emailAddress %>" />
+                    <label for="inputEmail">Email address</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input class="form-control" id="inputPassword" type="password" name="password" value="Update Password" />
+                    <label for="inputPassword">Password</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <select class="form-select" id="floatingSelect" name="level" aria-label="Floating label select example">
+                        <option value="<%= profiles.level %>" selected> <%= profiles.level %> </option>
+                        <option value="admin">Administrator - demo</option>
+                        <option value="employee">Employee</option>                                             
+                    </select>
+                    <label for="floatingSelect">Access level</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input class="form-control" id="inputTelephone" type="text" name="telephone" value="<%= profiles.telephone %>" />
+                    <label for="inputTelephone">Phone Number</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input class="form-control" id="inputUsername" type="text" name="userName" value="<%= profiles.userName %>" />
+                    <label for="inputUsername">User Name</label>
+                </div>    
+                
+                <input type="hidden" name="id" value="<%=profiles._id%>" />
+
+                <div class="mt-4 mb-0">
+                    <div class="d-grid"><button class="btn btn-primary btn-block" type="submit">Update User Info</button></div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

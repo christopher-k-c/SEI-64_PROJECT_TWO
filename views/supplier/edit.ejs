@@ -1,0 +1,68 @@
+<div class="container-fluid px-4 mt-4">
+
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="/product/index" class="text-dark">Dashboard</a></li>
+        <li class="breadcrumb-item active">Supplier / Edit </li>
+    </ol>
+
+    <div class="card mb-4">
+        <div class="card-body">
+
+            <!-- Form to edit supplier -->
+
+            <div class="card-header"><h3 class="text-center font-weight-light my-4">Edit Supplier</h3></div>
+        
+                <div class="card-body">
+
+                    <form class="form-dashboard" method="POST" action="/supplier/update?_method=PUT">
+
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="inputName" type="text" name="name" value="<%= supplier.name %>" />
+                            <label for="inputName">Supplier Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="inputPhoneNumber" type="text" name="phoneNumber" value="<%= supplier.phoneNumber %>" />
+                            <label for="inputPhoneNumber">Phone Number</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="inputAddress" type="text" name="address" value="<%= supplier.address %>" />
+                            <label for="inputAddress">Address</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="inputEmail" type="email" name="email" value="<%= supplier.email %>" 
+                            placeholder="example@example.com"
+                            size="30"
+                            required/>
+                            <label for="inputEmail">Email</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="inputWebsite" type="url" name="website" value="<%= supplier.website %>" 
+                            placeholder="https://example.com"
+                            size="30"
+                            required/>
+                            <label for="inputWebsite">Website</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                                <option selected>Select here</option>
+                                <option value="true">Yes</option>
+                                <option value="false">No</option>                              
+                            </select>
+                            <label for="floatingSelect">Currently trading?</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control" id="inputDescription" rows="6" name="description"> <%= supplier.description %> </textarea>
+                            <label for="inputDescription">Description</label>
+                        </div>
+
+                        <input type="hidden" name="id" value="<%= supplier._id %>" />
+
+                        <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                            <button class="btn btn-primary" type="submit">Save</button>
+                        </div>
+        
+                    </form>
+                </div>
+        </div>
+    </div>
+</div>

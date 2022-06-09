@@ -1,0 +1,73 @@
+<div class="container-fluid px-4 mt-4">
+
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="/product/index" class="text-dark">Dashboard</a></li>
+            <li class="breadcrumb-item active">Product / Edit </li>
+        </ol>
+
+    <div class="card mb-4">
+        <div class="card-body">
+
+            <!-- Form to edit product -->
+
+            <div class="card-header"><h3 class="text-center font-weight-light my-4">Edit item</h3></div>
+        
+            <div class="card-body">
+
+
+                <form class="form-dashboard" method="POST" action="/product/update?_method=PUT">
+
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="inputName" type="text" name="name" value="<%= product.name %>" />
+                        <label for="inputName">Item Name</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="inputQuantity" type="number" name="quantity" value="<%= product.quantity %>" />
+                        <label for="inputQuantity">Quantity</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="inputBrand" type="text" name="brand" value="<%= product.brand %>" />
+                        <label for="inputBrand">Brand</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        
+                        
+        
+                        <select name="supplier" class="form-control">
+                            
+                            <% suppliers.forEach(function(supplier){ %>
+                                <option value="<%= supplier._id %>" <%= product.supplier.id === supplier.id ? 'selected' : '' %> ><%= supplier.name %></option>
+                            <% }) %>
+                        </select>
+                        <label for="floatingSelect">Select a Supplier</label>
+                        <a class="small" href="/supplier/add">Didn't find a supplier? Add a new here</a>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="floatingSelect" name="storage" aria-label="Floating label select example">
+                            <option selected>Select here</option>
+                            <option value="Cupboard">Cupboard</option>
+                            <option value="Fridge">Fridge</option>  
+                            <option value="Freezer">Freezer</option>
+                            <option value="Other">Other</option>                            
+                        </select>
+                        <label for="floatingSelect">Storage</label>
+                        </div>
+
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" id="inputDescription" rows="6" name="description" value="<%= product.description %>"></textarea>
+                        <label for="inputDescription">Description</label>
+                    </div>
+
+                    <input type="hidden" name="id" value="<%= product._id %>" />
+        
+                    <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                        <button class="btn btn-primary" type="submit">Save</button>
+                    </div>
+        
+                </form>
+            </div>      
+        </div>
+    </div>    
+</div>

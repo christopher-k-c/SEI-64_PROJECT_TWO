@@ -1,0 +1,51 @@
+<div class="container-fluid px-4 mt-4">
+
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="/product/index" class="text-dark">Dashboard</a></li>
+            <li class="breadcrumb-item active">Product Detail: <%= product.name %> </li>
+        </ol>
+    <div class="card mb-4">
+        <div class="card-body">
+
+            <!-- Show details -->
+            <div class="card-header"><h3 class="text-center font-weight-light my-4"> <%= product.name %> </h3></div>
+                <div class="card-body">
+
+                            <div>
+                                Quantity: <%= product.quantity %>
+                            </div>
+                            <div>
+                                Storage: <%= product.storage %>
+                            </div>
+                            <div>
+                                Brand: <%= product.brand %>
+                            </div>
+                            <div>
+                                Description: <%= product.description %>
+                            </div>
+                            <div>
+                                Added by: <%= product.author %>
+                            </div>
+                            <div>
+                                Created At: <%= moment(product.createdAt).format('LLLL') %>
+                            </div>
+                            <div>
+                                Updated At: <%= moment(product.updatedAt).calendar() %>
+                            </div>
+
+
+                                <hr>
+                                <div> Supplier: <%= product.supplier.name %> </div>
+                                <div> Phone: <%= product.supplier.phoneNumber %> </div>
+                                <div> Address: <%= product.supplier.address %> </div>
+    
+                </div>
+
+                <div class="card-footer text-center py-3">
+                    <div class="small"><a href="/product/edit?id=<%=product._id%>">Edit This Product</a></div>
+                </div>
+
+        </div>
+    </div>
+</div>    
+    

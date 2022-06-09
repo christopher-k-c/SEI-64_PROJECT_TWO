@@ -1,11 +1,13 @@
 
 
-// const express = require('express');
+const express = require('express');
 
-// const router = express.Router();
+const router = express.Router();
 
-// const indexCtrl = require("../controllers/index");
 
-// router.get("/", indexCtrl.index_get);
+const indexCtrl = require("../controllers/index");
+router.get("/", indexCtrl.index_get);
 
-// module.exports = router;
+
+
+module.exports = router;

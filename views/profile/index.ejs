@@ -1,0 +1,76 @@
+
+
+
+<div class="container-fluid px-4 mt-4">
+
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="/profile/index" class="text-dark">Profile</a></li>
+        <li class="breadcrumb-item active">My Account </li>
+    </ol>
+
+    <div class="card mb-4">
+        <div class="card-body">
+
+                <!-- Updating profile credentials -->
+
+                <h2> User Credentials </h2>
+
+                <br>
+
+                <a href="/profile/edit" class="text-dark">Update your Credentials  <i class="bi bi-box-arrow-in-up-right"></i></a>
+
+                <br>
+                <table class="table table-hover">
+
+                    <tr>
+                        <th>First Name: </th>
+                        <td><%= currentUser.firstName %> </td>   
+                    </tr>
+                    <tr>
+                        <th>Last Name: </th>
+                        <td><%= currentUser.lastName %></td>
+                    </tr>
+                    <tr>
+                        <th>Job Title: </th>
+                        <td><%= currentUser.jobTitle %></td>
+                    </tr>
+                    <tr>
+                        <th>Email Address: </th>
+                        <td><%= currentUser.emailAddress %></td>
+                    </tr>
+                    <tr>
+                        <th>Seniority Level: </th>
+                        <td><%= currentUser.level %></td>
+                    </tr>
+                    <tr>
+                        <th>Telephone: </th>
+                        <td>
+                        <% if(currentUser.telephone == null) { %>
+
+                            <a href="/profile/edit" class="text-dark">Update Telephone <i class="bi bi-box-arrow-in-up-right"></i></a>
+
+                        <% } else { %>
+
+                            <%= currentUser.telephone %>
+
+                        <% } %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Username: </th>
+                        <td>
+                        <% if(currentUser.userName == "") { %>
+
+                            <a href="/profile/edit" class="text-dark">Update UserName <i class="bi bi-box-arrow-in-up-right"></i></a>
+
+                        <% } else { %>
+
+                            <%= currentUser.userName %>
+
+                        <% } %>
+                        </td>
+                    </tr>
+
+                </table>
+
+
