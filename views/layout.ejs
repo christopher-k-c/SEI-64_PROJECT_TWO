@@ -25,7 +25,7 @@
         
 
         <!-- Hides all user profiles from guest and junior level users -->
-        <% if(currentUser && currentUser.level == "admin") { %>
+        <% if(currentUser && currentUser.level == "Admin") { %>
 
             <a href="/profile/users" class="btn btn-danger">User Database</a>
     
@@ -134,7 +134,7 @@
 
                     <% alerts.success.forEach(function(msg) { %>
             
-                    <div class="alert alert-success">
+                    <div id="alert" class="alert alert-success">
                         <%= msg %>
                     </div>
                     
@@ -142,18 +142,6 @@
                 
                 <% } %> 
             
-            
-                <% if(alerts.error) { %>
-            
-                    <% alerts.error.forEach(function(msg) { %>
-            
-                    <div class="alert alert-danger">
-                        <%= msg %>
-                    </div>
-                    <% }) %>
-                
-                <% } %> 
-
                 <div class="container-fluid px-4">
         
 
@@ -191,8 +179,19 @@
         <% } %>
 
 
-
         
+
+        <script>
+
+        setTimeout(() => {
+            const box = document.getElementById('alert');     
+            box.style.visibility = 'hidden';
+        }, 3000);
+
+        </script>
+
+
+
 
 
         

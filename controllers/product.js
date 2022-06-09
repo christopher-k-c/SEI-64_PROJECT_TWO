@@ -1,12 +1,13 @@
 const {Product} = require('../models/Product');
 const {Supplier} = require('../models/Supplier');
+const {User} = require('../models/User');
 const moment = require('moment');
 const isLoggedIn = require("../helper/isLoggedIn");
 
 const storageOpt = ["Cupboard", "Fridge", "Freezer", "Other"];
 
 // Create //
-exports.product_create_get = (req, res) => {
+exports.product_create_get = (req, res, next) => {
     
     Supplier.find()
     .then((suppliers) => {
@@ -15,10 +16,17 @@ exports.product_create_get = (req, res) => {
     .catch(err => {
         console.log(err);
     })
+    User.find()
+    .then((users) => {
+        res.render("product/add", {users})
+    })
+    .catch(err => {
+        console.log(err);
+    })
 };
 
 
-exports.product_create_post = (req, res) => {
+exports.product_create_post = (req, res, next) => {
     console.log(req.body);
     
     
@@ -31,6 +39,10 @@ exports.product_create_post = (req, res) => {
         Supplier.findById(req.body.supplier, (error, supplier) => {
             supplier.product.push(product);
             supplier.save();
+        })
+        User.findById(req.body.user, (error, user) => {
+            user.product.push(product);
+            user.save();
         })
       
 
@@ -59,10 +71,22 @@ exports.product_index_get = (req, res) => {
     })
 };
 
+// exports.product_showing_get = (req, res) => {
+//     Product.findById({'author.id': req.user._id}).populate('supplier')
+//     .then(product => {
+//         res.render('product/detail', {currentUser: req.user, product: product, moment})
+//     })
+//     .catch((err) => {
+//         console.log(err);
+//     })
+// };
+
 // Show Detail //
 
 exports.product_show_get = (req, res) => {
     console.log(req.query.id)
+
+
 
     Product.findById(req.query.id).populate('supplier')
     .then(product => {
@@ -72,6 +96,8 @@ exports.product_show_get = (req, res) => {
         console.log(err);
     })
 }
+
+
 
 // Delete //
 exports.product_delete_get = (req, res) => {

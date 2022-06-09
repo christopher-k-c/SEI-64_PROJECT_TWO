@@ -14,18 +14,18 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true,
         minLength: [3, "First name must be more than three characters"],
-        maxLength: [100, "Name must be less than 100 Characters"]
+        maxLength: [100, "First name must be less than 100 Characters"]
     },
     lastName: {
         type: String,
         required: true,
-        minLength: [3, "First name must be more than three characters"],
-        maxLength: [100, "Name must be less than 100 Characters"]
+        minLength: [3, "Last name must be more than three characters"],
+        maxLength: [100, "Last name must be less than 100 Characters"]
     },
     jobTitle: {
         type: String,
         required: true,
-        minLength: [3, "First name must be more than three characters"],
+        minLength: [3, "Job Title must be more than three characters"],
         maxLength: [70, "Job Title must be less than 100 Characters"]
     },
     level: {
@@ -36,13 +36,12 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true,
         lowercase: true,
-        // if email already exists then retirn true - stops user from registereing with email adddrss that alreay used
         unique: true
     },
     password: {
         type: String,
         required: true,
-        minLength: [6, " Your password is weak."]
+        minLength: [6, " Your password is very weak."]
     },
     telephone: {
         type: Number,
@@ -71,7 +70,7 @@ userSchema.methods.verifyPassword = function(password) {
 
 // BUILDING MODEL OF USER SCHEMA
 // CHANGED "User" to "user"
-const User = mongoose.model("user", userSchema);
+const User = mongoose.model("User", userSchema);
 
 // EXPORTING USER FOR US TO USE IN OTHER FILES
 module.exports = User;
