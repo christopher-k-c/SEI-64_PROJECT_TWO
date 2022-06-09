@@ -14,7 +14,7 @@
         
                 <div class="card-body">
 
-                    <form method="POST" action="/supplier/update?_method=PUT">
+                    <form class="form-dashboard" method="POST" action="/supplier/update?_method=PUT">
 
                         <div class="form-floating mb-3">
                             <input class="form-control" id="inputName" type="text" name="name" value="<%= supplier.name %>" />
@@ -48,7 +48,7 @@
                                 <option value="true">Yes</option>
                                 <option value="false">No</option>                              
                             </select>
-                            <label for="floatingSelect">Current trading?</label>
+                            <label for="floatingSelect">Currently trading?</label>
                         </div>
                         <div class="form-floating mb-3">
                             <textarea class="form-control" id="inputDescription" rows="6" name="description"> <%= supplier.description %> </textarea>
@@ -58,7 +58,7 @@
                         <input type="hidden" name="id" value="<%= supplier._id %>" />
 
                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                            <button class="btn btn-primary" type="submit">Update Supplier</button>
+                            <button class="btn btn-primary" type="submit">Save</button>
                         </div>
         
                     </form>

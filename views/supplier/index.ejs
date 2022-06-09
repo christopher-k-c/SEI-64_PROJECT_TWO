@@ -18,36 +18,15 @@
         <table id="datatablesSimple">
             <thead>
                 <tr>
-                    <th> Name 
-                        <% if(sorting.field !== 'name') { %>
-                            <a class="text-dark" href="/supplier/index?sortBy=name&srt=1" >  
-                        <% } else { %>
-                            <a class="text-dark" href="/supplier/index?sortBy=name&srt=<%= (sorting.direction == 1) ? -1 : 1 %>" > 
-                        <% } %>
-                            </a>
-                    </th>
+                    <th> Name </th>
 
                     <th> Phone Number </th>
 
                     <th> Address </th>
 
-                    <th> Created At 
-                        <% if(sorting.field !== 'createdAt') { %>
-                            <a class="text-dark" href="/supplier/index?sortBy=createdAt&srt=1" >  
-                        <% } else { %>
-                            <a class="text-dark" href="/supplier/index?sortBy=createdAt&srt=<%= (sorting.direction == 1) ? -1 : 1 %>" > 
-                        <% } %>
-                            </a>
-                    </th>
+                    <th> Created At </th>
 
-                    <th> Updated At 
-                        <% if(sorting.field !== 'updatedAt') { %>
-                            <a class="text-dark" href="/supplier/index?sortBy=updatedAt&srt=1" >  
-                        <% } else { %>
-                            <a class="text-dark" href="/supplier/index?sortBy=updatedAt&srt=<%= (sorting.direction == 1) ? -1 : 1 %>" > 
-                        <% } %>
-                            </a>
-                    </th>
+                    <th> Updated At </th>
 
                     <th> Edit </th>
 
@@ -57,7 +36,7 @@
 
                 <% suppliers.forEach(function(supplier) { %>
                 <tr>
-                    <td> <a href="/supplier/detail?id=<%= supplier.id %>"><%= supplier.name %></a></td>
+                    <td> <a href="/supplier/detail?id=<%= supplier.id %>" class="text-dark text-decoration-none"><%= supplier.name %> <i class="bi bi-box-arrow-in-up-right"></i></a></td>
                     <td> <%= supplier.phoneNumber %> </td>
                     <td> <%= supplier.address %> </td>
                     <td> <%= moment(supplier.createdAt).fromNow() %> </td>
