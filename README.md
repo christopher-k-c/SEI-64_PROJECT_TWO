@@ -12,13 +12,35 @@ There were approximately 5,000 micro, Small and Medium Enterprises in the food a
 
 ## Technologies used
 
+* HTML 
+* CSS
+* Javascript
+* Monogodb
+* Node.js
 
+Dependancies:
+
+bcrypt, connect-flash, dotenv, ejs, express, 
+express-ejs-layouts, express-session, method-override, 
+moment, mongoose, nodemon, passport, passport-local
 
 ### Dev tools
 
+* Git
+* Heroku
+* MongoDB Online
+
+### Unsolved Problems
+
+* Reset Password whilst logged out of application 
+* Upload profile images
+* Create Company accounts (Only displays data created by the company)
+* Invite team members to join via email functionality 
+* Ability for users to import data via csv files
 
 
 
+<a href="https://inventorycontrolsystem02.herokuapp.com/">Completed Project</a>
 
 
 ## Developers
