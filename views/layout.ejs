@@ -23,12 +23,14 @@
             </div>
         </form>
         
+
         <!-- Hides all user profiles from guest and junior level users -->
         <% if(currentUser && currentUser.level == "admin") { %>
 
             <a href="/profile/users" class="btn btn-danger">User Database</a>
     
         <% } %>
+
 
         <!-- Top Navbar LoggedIn-->
 
@@ -46,7 +48,7 @@
                 </li>
             </ul>
 
-        
+
  
     </nav>
 
@@ -179,6 +181,7 @@
             <% }) %>
         <% } %>
 
+        
 </body>
 </html>
 
