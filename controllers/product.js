@@ -34,11 +34,6 @@ exports.product_create_post = (req, res) => {
             supplier.product.push(product);
             supplier.save();
         });
-
-        // User.findById(req.body.user, (error, user) => {
-        //     user.product.push(product);
-        //     user.save();
-        // });
       
 
         res.redirect('/product/index');

@@ -66,7 +66,7 @@ let pieChart = function(labels, data, total) {
   var pieChart = new Chart(ctx, {
     type: 'pie',
     data: {
-      labels: ["Blue", "Red", "Yellow", "Green"],
+      labels: labels,
       datasets: [{
         data: data,
         backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
@@ -89,12 +89,12 @@ $.getJSON( "/product/chart", function( data ) {
 });
 
 
-$.getJSON( "/product/pieChart", function( data ) {
+$.getJSON( "/supplier/pieChart", function( data ) {
   let labels = [];
   let results = [];
   let total = 0;
   $.each( data, function( key, val ) {
-    labels.push( val._id );
+    labels.push( val.name );
     results.push(val.totalProducts);
     total = total + val.totalProducts;
   });
