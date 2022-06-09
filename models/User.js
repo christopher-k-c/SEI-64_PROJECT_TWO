@@ -29,7 +29,7 @@ const userSchema = mongoose.Schema({
     },
     level: {
         type: String,
-        required: true
+        required: false
     },
     emailAddress: {
         type: String,

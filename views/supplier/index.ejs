@@ -55,24 +55,27 @@
                 </tr>
             </thead>
 
-                <% suppliers.forEach(function(supplier) { %>
-                <tr>
-                    <td> <a href="/supplier/detail?id=<%= supplier.id %>"><%= supplier.name %></a></td>
-                    <td> <%= supplier.phoneNumber %> </td>
-                    <td> <%= supplier.address %> </td>
-                    <td> <%= moment(supplier.createdAt).fromNow() %> </td>
-                    <td> <%= moment(supplier.updatedAt).fromNow() %> </td>
-                    <td> <a href="/supplier/edit?id=<%= supplier.id %>"><i class="bi bi-pencil-square text-dark"></i></a>  </td>
-                    <td> 
-                        <% if(supplier.product.length === 0) { %>
-                            <a href="/supplier/delete?id=<%= supplier.id %>" class="delete"><i class="bi bi-trash3 text-dark"></i></a>  
-                        <% } else { %>
-                            <span>cannot delete</span>
-                        <% } %>
-                    </td>
-                </tr>
+            
+
+                    <% suppliers.forEach(function(supplier) { %>
+                    <tr>
+                        <td> <a href="/supplier/detail?id=<%= supplier.id %>"><%= supplier.name %></a></td>
+                        <td> <%= supplier.phoneNumber %> </td>
+                        <td> <%= supplier.address %> </td>
+                        <td> <%= moment(supplier.createdAt).fromNow() %> </td>
+                        <td> <%= moment(supplier.updatedAt).fromNow() %> </td>
+                        <td> <a href="/supplier/edit?id=<%= supplier.id %>"><i class="bi bi-pencil-square text-dark"></i></a>  </td>
+                        <td> 
+                            <% if(supplier.product.length === 0) { %>
+                                <a href="/supplier/delete?id=<%= supplier.id %>" class="delete"><i class="bi bi-trash3 text-dark"></i></a>  
+                            <% } else { %>
+                                <span>cannot delete</span>
+                            <% } %>
+                        </td>
+                    </tr>
                 
-                <% }) %>
+                    <% }) %>
+
             
         </table>
     </div>

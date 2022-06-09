@@ -24,6 +24,9 @@ router.put('/product/update', productCtrl.product_update_put);
 router.get('/product/chart', productCtrl.product_chart_get);
 
 
+
+
+
 module.exports = router;
 
 

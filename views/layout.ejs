@@ -83,6 +83,7 @@
                         </div>
 
 
+
                         <div class="sb-sidenav-menu-heading">Addons (coming soon)</div>
                         <a class="nav-link" href="#">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
@@ -92,6 +93,13 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Tables
                         </a>
+
+                        
+                        <% if(currentUser.level === "Admin") { %>
+                        <div class="sb-sidenav-menu-heading">Administrator</div>
+                        <a class="nav-link" href="/profile/users">User Database</a>
+                        <% } %>
+
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
@@ -181,6 +189,11 @@
             <script src=" <%= scripts %> "></script>
             <% }) %>
         <% } %>
+
+
+
+        
+
 
         
 </body>

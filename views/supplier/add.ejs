@@ -32,7 +32,7 @@
                             <label for="inputEmail">Email</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="inputWebsite" type="url" name="address" placeholder="https://" />
+                            <input class="form-control" id="inputWebsite" type="url" name="website" placeholder="https://" />
                             <label for="inputWebsite">Website</label>
                         </div>       
                 
@@ -51,9 +51,10 @@
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="inputWebsite" type="hidden" name="author" value="<%= currentUser %>" />
-        
+                            <input class="form-control" id="inputWebsite" type="hidden" name="author" value="<%= currentUser._id %>" />
                         </div>
+
+                        
             
                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                             <button class="btn btn-primary" type="submit">Create Supplier</button>
@@ -124,7 +125,7 @@
     
     <div class="row mb-3">
         <label>Your name or ID</label>
-        <input type="text" name="author"/>
+        <input type="text" name="author" value="<%= currentUser._id %>"/>
     </div>
 
     <button type="submit" class="btn btn-danger btn-lg">Create Supplier</button>

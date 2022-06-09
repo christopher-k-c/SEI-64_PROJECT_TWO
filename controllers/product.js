@@ -20,6 +20,8 @@ exports.product_create_get = (req, res) => {
 
 exports.product_create_post = (req, res) => {
     console.log(req.body);
+    
+    
 
     let product = new Product(req.body);
 
@@ -38,6 +40,10 @@ exports.product_create_post = (req, res) => {
         console.log(err);
         res.send('Missing field, try again');
     })
+
+    console.log(req.user)
+
+    console.log(req.user.id)
 }
 
 // Index list //
