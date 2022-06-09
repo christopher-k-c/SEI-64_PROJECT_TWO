@@ -24,19 +24,10 @@ exports.supplier_create_post = (req, res) => {
 
 // Index list //
 exports.supplier_index_get = (req, res) => {
-    let sort = {field: null, direction: null}
-    if(req.query.sortBy !== null) {
-        sort.field = req.query.sortBy;
-        sort.direction = ( req.query.srt !== null ) ? req.query.srt : 1
-    }
-    let sorting = {};
-    if(sort.field !== null && sort.direction !== null) {
-        sorting[sort.field]=sort.direction;
-    }
-
-    Supplier.find({}, null, {sort: sorting}).populate('product')
+    
+    Supplier.find({}, null).populate('product')
     .then(suppliers => {
-        res.render("supplier/index", {suppliers: suppliers, sorting: sort, moment}) 
+        res.render("supplier/index", {suppliers: suppliers, moment}) 
     })
     .catch(err => {
         console.log(err);

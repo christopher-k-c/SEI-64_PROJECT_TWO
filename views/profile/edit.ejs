@@ -1,47 +1,74 @@
 
+<div class="container-fluid px-4 mt-4">
 
-<h2>Update Your Information </h2>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="/profile/index" class="text-dark">Profile</a></li>
+        <li class="breadcrumb-item active">My Account / Update </li>
+    </ol>
 
+    <div class="card mb-4">
+        <div class="card-body">
 
-<form method="POST" action="/profile/update?_method=PUT">
+            <!-- Editing personal profile -->
 
-    <div class="form-group">
-       <label>First Name</label>
-       <input name="firstName" type="text" value="<%= currentUser.firstName %>"  class="form-control"/> 
-    </div>
-    <div class="form-group">
-        <label>Last Name</label>
-        <input name="lastName" type="text" value="<%= currentUser.lastName %>"  class="form-control"/> 
-    </div>
-    <div class="form-group">
-        <label>Job Title</label>
-        <input name="jobTitle" type="text" value="<%= currentUser.jobTitle %>"  class="form-control"/> 
-    </div>
-    <!-- <div class="form-group">
-        <label>Seniority Level</label>
-        <input name="level" type="text" value="<%= currentUser.level %>"  class="form-control"/> 
-    </div> -->
-    <div class="form-group">
-        <label>Email Address</label>
-        <input name="emailAddress" type="text" value="<%= currentUser.emailAddress %>"  class="form-control"/> 
-    </div>
-    <div class="form-group">
-        <label>Password</label>
-        <input name="Password" type="text" value="Update Password"  class="form-control"/> 
-    </div>
-    <div class="form-group">
-        <label>Telephone</label>
-        <input name="telephone" type="text" value="<%= currentUser.telephone %>"  class="form-control"/> 
-    </div>
-    <div class="form-group">
-        <label>User Name</label>
-        <input name="userName" type="text" value="<%= currentUser.userName %>"  class="form-control"/> 
-    </div>
+            <form class="form-dashboard" method="POST" action="/profile/update?_method=PUT">
 
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <input class="form-control" id="inputFirstName" type="text" name="firstName" value="<%= currentUser.firstName %>" />
+                            <label for="inputFirstName">First Name</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input class="form-control" id="inputLastName" type="text" name="lastName" value="<%= currentUser.lastName %>" />
+                            <label for="inputLastName">Last Name</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-floating mb-3">
+                    <select class="form-select" id="floatingSelect" name="jobTitle" aria-label="Select your job title">
+                        <option selected>Select here</option>
+                        <option value="ExecutiveChef">Executive Chef</option>
+                        <option value="headChef">Head Chef</option>
+                        <option value="sousChef">Sous Chef</option>
+                        <option value="stationChef ">Station Chef</option>
+                        <option value="juniorChef">Junior Chef</option>
+                        <option value="kitchenPorter">Kitchen Porter</option>
+                        <option value="dishWash">Dishwasher</option>                                          
+                    </select>
+                    <label for="floatingSelect">Occupation Title</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input class="form-control" id="inputEmail" type="email" name="emailAddress" value="<%= currentUser.emailAddress %>" />
+                    <label for="inputEmail">Email address</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input class="form-control" id="inputPassword" type="password" name="password" value="Update Password" />
+                    <label for="inputPassword">Password</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input class="form-control" id="inputLevel" name="level" value="<%= currentUser.level %>" disabled/>
+                    <label for="inputLevel">Access Level (contact manager for changes)</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input class="form-control" id="inputTelephone" type="text" name="telephone" value="<%= currentUser.telephone %>" />
+                    <label for="inputTelephone">Phone Number</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input class="form-control" id="inputUsername" type="text" name="userName" value="<%= currentUser.userName %>" />
+                    <label for="inputUsername">User Name</label>
+                </div>      
+                
+                <input type="hidden" name="id" value="<%=currentUser._id%>" />
 
-    <input type="hidden" name="id" value="<%=currentUser._id%>" />
-   
-    <button type="submit">Update Account Information</button>
+                <div class="mt-4 mb-0">
+                    <div class="d-grid"><button class="btn btn-primary btn-block" type="submit">Update Account Information</button></div>
+                </div>
 
-</form>
+            </form>
+        </div>
+    </div>
+</div>
 
