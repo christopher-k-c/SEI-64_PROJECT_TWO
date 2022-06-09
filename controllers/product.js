@@ -17,10 +17,17 @@ exports.product_create_get = (req, res, next) => {
     .catch(err => {
         console.log(err);
     })
+    // User.find()
+    // .then((users) => {
+    //     res.render("product/add", {users})
+    // })
+    // .catch(err => {
+    //     console.log(err);
+    // })
 };
 
 
-exports.product_create_post = (req, res) => {
+exports.product_create_post = (req, res, next) => {
     console.log(req.body);
     
     
@@ -61,10 +68,22 @@ exports.product_index_get = (req, res) => {
     })
 };
 
+// exports.product_showing_get = (req, res) => {
+//     Product.findById({'author.id': req.user._id}).populate('supplier')
+//     .then(product => {
+//         res.render('product/detail', {currentUser: req.user, product: product, moment})
+//     })
+//     .catch((err) => {
+//         console.log(err);
+//     })
+// };
+
 // Show Detail //
 
 exports.product_show_get = (req, res) => {
     console.log(req.query.id)
+
+
 
     Product.findById(req.query.id).populate('supplier')
     .then(product => {
@@ -74,6 +93,8 @@ exports.product_show_get = (req, res) => {
         console.log(err);
     })
 }
+
+
 
 // Delete //
 exports.product_delete_get = (req, res) => {

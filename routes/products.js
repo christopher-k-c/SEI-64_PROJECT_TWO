@@ -24,6 +24,11 @@ router.put('/product/update', isLoggedIn, productCtrl.product_update_put);
 router.get('/product/chart', isLoggedIn, productCtrl.product_chart_get);
 
 
+// router.get('/product/detail', isLoggedIn, productCtrl.product_showing_get);
+
+
+
+
 
 
 

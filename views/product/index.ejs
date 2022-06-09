@@ -50,7 +50,9 @@
 
          
             
+            
                 <% products.forEach(function(product){  %>
+                    <% if(product.author == currentUser.id) { %>
 
                     <tr>
                         <td> <a href="/product/detail?id=<%= product._id %>" class="text-dark text-decoration-none"><%= product.name %> <i class="bi bi-box-arrow-in-up-right"></i></a> </td>
@@ -60,12 +62,16 @@
                         <td> <%= product.brand %> </td>
                         <td> <a href="/supplier/detail?id=<%= product.supplier._id %>" class="text-dark text-decoration-none"><%= product.supplier.name %> <i class="bi bi-box-arrow-in-up-right"></i></a> </td>
     
+                        
                         <td><a href="/product/edit?id=<%=product._id%>"><i class="bi bi-pencil-square text-dark"></i></a> </td>
+                        
                         <td> 
+                        
                             <a href="/product/delete?id=<%=product._id%>" class="delete"><i class="bi bi-trash3 text-dark"></i></a>
                         </td>
                     </tr>
                 
+                    <% } %>
                 <% }) %>
            
 
