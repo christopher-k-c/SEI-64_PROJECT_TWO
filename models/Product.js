@@ -6,7 +6,10 @@ const productSchema = mongoose.Schema ({
     storage: String,
     description: String,
     quantity: Number,
-    author: String,
+    author: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
     supplier: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Supplier'

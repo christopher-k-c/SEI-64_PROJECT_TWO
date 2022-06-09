@@ -1,12 +1,14 @@
 const {Product} = require('../models/Product');
 const {Supplier} = require('../models/Supplier');
+const {User} = require('../models/User');
+
 const moment = require('moment');
 const isLoggedIn = require("../helper/isLoggedIn");
 
 const storageOpt = ["Cupboard", "Fridge", "Freezer", "Other"];
 
 // Create //
-exports.product_create_get = (req, res) => {
+exports.product_create_get = (req, res, next) => {
     
     Supplier.find()
     .then((suppliers) => {
@@ -31,7 +33,12 @@ exports.product_create_post = (req, res) => {
         Supplier.findById(req.body.supplier, (error, supplier) => {
             supplier.product.push(product);
             supplier.save();
-        })
+        });
+
+        // User.findById(req.body.user, (error, user) => {
+        //     user.product.push(product);
+        //     user.save();
+        // });
       
 
         res.redirect('/product/index');

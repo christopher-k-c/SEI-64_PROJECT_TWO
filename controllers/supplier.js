@@ -81,3 +81,22 @@ exports.supplier_update_put = (req, res) =>{
         console.log(err)
     })
 };
+
+// Pie Chart for index //
+
+exports.product_chart_get = (req, res) => {
+    
+
+    Supplier.find()
+    .then(suppliers => { 
+        suppliers.forEach(( supplier) => {
+
+        })
+
+        res.json(products)
+    })
+    .catch(err => {
+        console.log(err);
+    })
+};
+ 
