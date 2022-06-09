@@ -4,21 +4,28 @@ This is a Full Stack Application for micro, small and medium food businesses tha
 
 ## Idea
 There were approximately 5,000 micro, Small and Medium Enterprises in the food and drink sector, according to [gov.uk](https://www.gov.uk/government/statistics/food-statistics-pocketbook/food-statistics-in-your-pocket)
+
 ### Entity Relationship Diagram
 ![ERD](/assets/ERD-SEI-project-2.jpg)
+
 ### Dashboard wireframe
 ![WireFarmes](/assets/dashboard.png)
 ![WireFarmes](/assets/detail.png)
+
+### Screenshot
+![Screenshot](/public/images/ics-dashboard-system.jpg)
 
 ## Technologies used
 
 * HTML 
 * CSS
-* Javascript
-* Monogodb
+* JavaScript
+* jQuery
+* MongoDB
 * Node.js
+* Chart.js
 
-Dependancies:
+## Dependencies:
 
 bcrypt, connect-flash, dotenv, ejs, express, 
 express-ejs-layouts, express-session, method-override, 
@@ -29,8 +36,33 @@ moment, mongoose, nodemon, passport, passport-local
 * Git
 * Heroku
 * MongoDB Online
+* Bootstrap
 
-### Unsolved Problems
+## Technical Features
+### Authentication
+* User can sign up and sign in
+* User can sign out
+* User can edit their own profile
+* User can change their own password
+
+#### Level Admin
+* Admin can also see all other profiles
+* Admin can also edit profiles and delete users
+
+### Resources
+
+#### CRUD
+* Create and update products
+* Create and update suppliers for products
+* Assign one suppliers for each product
+* Assigned suppliers cannot be deleted
+
+#### Charts
+* Show products received per day
+* Pie chart show products assigned per supplier
+
+
+## Unsolved Problems
 
 * Reset Password whilst logged out of application 
 * Upload profile images
@@ -39,10 +71,10 @@ moment, mongoose, nodemon, passport, passport-local
 * Ability for users to import data via csv files
 
 
-
+## Try our project
 <a href="https://inventorycontrolsystem02.herokuapp.com/">Completed Project</a>
 
 
 ## Developers
-[https://www.linkedin.com/in/chriskcarey/](https://www.linkedin.com/in/chriskcarey/)
-[https://www.linkedin.com/in/yamilybenigni/](https://www.linkedin.com/in/yamilybenigni/)
+* [https://www.linkedin.com/in/chriskcarey/](https://www.linkedin.com/in/chriskcarey/)
+* [https://www.linkedin.com/in/yamilybenigni/](https://www.linkedin.com/in/yamilybenigni/)
