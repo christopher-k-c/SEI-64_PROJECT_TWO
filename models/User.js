@@ -6,30 +6,31 @@ const mongoose = require('mongoose')
 const bcrypt = require('bcrypt');
 
 
+
 // USER SCHEMA
 const userSchema = mongoose.Schema({
 
     firstName: {
         type: String,
         required: true,
-        minlength: [3, "First name must be more than three characters"],
-        maxlength: [100, "Name must be less than 100 Characters"]
+        minLength: [3, "First name must be more than three characters"],
+        maxLength: [100, "Name must be less than 100 Characters"]
     },
     lastName: {
         type: String,
         required: true,
-        minlength: [3, "First name must be more than three characters"],
-        maxlength: [100, "Name must be less than 100 Characters"]
+        minLength: [3, "First name must be more than three characters"],
+        maxLength: [100, "Name must be less than 100 Characters"]
     },
     jobTitle: {
         type: String,
         required: true,
-        minlength: [3, "First name must be more than three characters"],
-        maxlength: [70, "Job Title must be less than 100 Characters"]
+        minLength: [3, "First name must be more than three characters"],
+        maxLength: [70, "Job Title must be less than 100 Characters"]
     },
     level: {
         type: String,
-        required: true
+        required: false
     },
     emailAddress: {
         type: String,
@@ -41,7 +42,7 @@ const userSchema = mongoose.Schema({
     password: {
         type: String,
         required: true,
-        minlength: [6, " Your password is weak."]
+        minLength: [6, " Your password is weak."]
     },
     telephone: {
         type: Number,
