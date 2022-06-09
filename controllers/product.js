@@ -1,6 +1,6 @@
 const {Product} = require('../models/Product');
 const {Supplier} = require('../models/Supplier');
-const {User} = require('../models/User');
+// const {User} = require('../models/User');
 const moment = require('moment');
 const isLoggedIn = require("../helper/isLoggedIn");
 
@@ -16,13 +16,13 @@ exports.product_create_get = (req, res, next) => {
     .catch(err => {
         console.log(err);
     })
-    User.find()
-    .then((users) => {
-        res.render("product/add", {users})
-    })
-    .catch(err => {
-        console.log(err);
-    })
+    // User.find()
+    // .then((users) => {
+    //     res.render("product/add", {users})
+    // })
+    // .catch(err => {
+    //     console.log(err);
+    // })
 };
 
 
@@ -40,10 +40,10 @@ exports.product_create_post = (req, res, next) => {
             supplier.product.push(product);
             supplier.save();
         })
-        User.findById(req.body.user, (error, user) => {
-            user.product.push(product);
-            user.save();
-        })
+        // User.findById(req.body.user, (error, user) => {
+        //     user.product.push(product);
+        //     user.save();
+        // })
       
 
         res.redirect('/product/index');
