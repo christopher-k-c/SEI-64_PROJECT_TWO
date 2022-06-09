@@ -56,17 +56,48 @@ let drawChart = function(labels, data, total) {
   });
 }
 
+
+
+
+let pieChart = function(labels, data, total) {
+// Pie Chart Area //
+
+  var ctx = document.getElementById("pieChart");
+  var pieChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: ["Blue", "Red", "Yellow", "Green"],
+      datasets: [{
+        data: data,
+        backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
+      }],
+    },
+  });
+}
+
 $.getJSON( "/product/chart", function( data ) {
-    let labels = [];
-    let results = [];
-    let total = 0;
-    $.each( data, function( key, val ) {
-      labels.push( val._id );
-      results.push(val.totalInflux);
-      total = total + val.totalInflux;
-    });
-   
-    drawChart(labels, results, total)
+  let labels = [];
+  let results = [];
+  let total = 0;
+  $.each( data, function( key, val ) {
+    labels.push( val._id );
+    results.push(val.totalInflux);
+    total = total + val.totalInflux;
+  });
+ 
+  drawChart(labels, results, total)
 });
 
 
+$.getJSON( "/product/pieChart", function( data ) {
+  let labels = [];
+  let results = [];
+  let total = 0;
+  $.each( data, function( key, val ) {
+    labels.push( val._id );
+    results.push(val.totalProducts);
+    total = total + val.totalProducts;
+  });
+ 
+  pieChart(labels, results, total)
+});
