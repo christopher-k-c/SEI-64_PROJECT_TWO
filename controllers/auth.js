@@ -14,9 +14,7 @@ const passport = require('../helper/ppConfig');
 
 // HTTP GET - FOR SIGN UP - GET SIGNUP PAGE
 exports.auth_signup_get = (req, res) => {
-    // if(req.query.error) {
-    //     req.flash("danger", "You have failed to sign up")
-    // }
+    
     res.render("auth/signup", {layout: "layoutAuth"});
 }
 

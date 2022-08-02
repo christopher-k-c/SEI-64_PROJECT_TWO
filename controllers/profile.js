@@ -57,6 +57,8 @@ exports.help_get = (req, res) => {
 // HTTP GET - User Detail For Admin
 exports.profile_edituser_get = (req, res) => {
 
+    console.log()
+
     User.findById(req.query.id)
     .then((profiles) => {
         res.render('profile/editUser', {profiles: profiles, moment})
@@ -70,6 +72,8 @@ exports.profile_edituser_get = (req, res) => {
 // HTTP GET - Admin to Update user information
 exports.profile_updateuser_put = (req, res) => {
     
+
+    console.log(req.body.id)
     let hashedPassword = bcrypt.hashSync(req.body.password, 10);
     req.body.password = hashedPassword;
     
