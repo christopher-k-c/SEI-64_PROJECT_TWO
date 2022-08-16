@@ -2,7 +2,7 @@
 # Project: Inventory Control System
 This is a Full Stack Application for micro, small and medium food businesses that could benefit from controlling stock rotation of products and avoid food waste.
 
-## Idea
+## Goal
 There were approximately 5,000 micro, Small and Medium Enterprises in the food and drink sector, according to [gov.uk](https://www.gov.uk/government/statistics/food-statistics-pocketbook/food-statistics-in-your-pocket)
 
 ### Entity Relationship Diagram
@@ -37,6 +37,12 @@ moment, mongoose, nodemon, passport, passport-local
 * Heroku
 * MongoDB Online
 * Bootstrap
+
+
+## Contribution Examples 
+
+I was team lead, making me responsible for merging conflicts and deploying the site to heroku. My main contribution was in the setting up of the User Authentication and Authorization, utilising Passport an authentication middleware for Node.js and bcrypt a password-hashing function used to encrypt and decrypt user passwords.
+
 
 ## Technical Features
 ### Authentication
