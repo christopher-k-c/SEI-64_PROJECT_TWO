@@ -110,8 +110,9 @@ This is the table of users that's displayed when the link is clicked:
 ### Bugs 
 
 - Login alert message works but the logout messaging does not.
-- When updating or adding a phone number to a user, if the first digit in the phone if a zero it will not save or display. 
+- When updating or adding a phone number to a user, if the first digit in the phone is zero it will not save or display.
 - Also related to the phone number, there needs to be a min and maximum digit rule applied to the input, and can place as many or as few digits as the user likes into this input.
+- The dashboard themes css file is 11000 lines long and we are likely only using 300 lines at maximum. I cleared up the landing page themes css file which also came with a large amount of redundant css however the dashboard theme is particularly egregious. It unfortunately means that the project looks incredibly CSS heavy when in fact only 5% of that css is actually taking effect.
 
 
 ### Key Learnings & Wins
