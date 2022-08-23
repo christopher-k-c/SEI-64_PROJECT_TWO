@@ -54,6 +54,13 @@ As team lead I was responsible for merging conflicts and deploying the site to h
 
 #### Authentication
 
+This controller api, **auth_signup_post**, receives a request and will return one of two responses, a redirect to the login page if the **sign in** has been successful or a redirect to the **signup page** if the signup has been a failure.
+
+The password is hashed using bcrypt before we try to save the new user object to the database. If the save has been successful the page will redirect you to the signup page and return a success message. This message will display for 3 seconds and disappear, I did this by using the setTimeout javascript method. If it's not been successful, the page will be refreshed and a message will be displayed indicating your signup has failed.
+
+
+first creates a new instance of the User object contains a promise
+
 ![Auth](/assets/auth.png)
 
 ## Technical Features
