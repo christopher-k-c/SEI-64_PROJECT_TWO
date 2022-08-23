@@ -76,7 +76,7 @@ This is the table of users that's displayed when the link is clicked:
 
 
 ## Technical Features
-### Authentication
+#### Authentication
 * User can sign up and sign in
 * User can sign out
 * User can edit their own profile
@@ -86,7 +86,6 @@ This is the table of users that's displayed when the link is clicked:
 * Admin can also see all other profiles
 * Admin can also edit profiles and delete users
 
-### Resources
 
 #### CRUD
 * Create and update products
@@ -99,7 +98,7 @@ This is the table of users that's displayed when the link is clicked:
 * Pie chart show products assigned per supplier
 
 
-### Features to be added in the future
+#### Features to be added in the future
 
 - Reset Password whilst logged out of application
 - Upload profile images
@@ -107,7 +106,7 @@ This is the table of users that's displayed when the link is clicked:
 - Invite team members to join via email functionality
 - Ability for users to import data via csv files
 
-### Bugs 
+#### Bugs 
 
 - Login alert message works but the logout messaging does not.
 - When updating or adding a phone number to a user, if the first digit in the phone is zero it will not save or display.
@@ -116,7 +115,7 @@ This is the table of users that's displayed when the link is clicked:
 
 
 
-### Key Learnings & Wins
+#### Key Learnings & Wins
 
 - Experience implementing a Start-Bootstrap theme for the first time.
 - Experience Implementing Authentication and Authorisation for a full stack web application for the first time.
