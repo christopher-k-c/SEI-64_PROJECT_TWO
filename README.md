@@ -52,16 +52,22 @@ moment, mongoose, nodemon, passport, passport-local
 
 As team lead I was responsible for merging conflicts and deploying the site to heroku. However, my main contribution was in the setting up of the User Authentication and Authorization, utilising Passport an authentication middleware for Node.js and bcrypt a password-hashing function used to encrypt and decrypt user passwords. Sourcing the landing page Bootstrap Theme, User alerts and more.
 
-#### Sign Up
+### Sign Up Example
+
+![Auth](/assets/auth.png)
 
 This controller api, **auth_signup_post**, receives a request and will return one of two responses, a redirect to the login page if the **sign in** has been successful or a redirect to the **signup page** if the signup has been a failure.
 
 The password is hashed using bcrypt before we try to save the new user object to the database. If the save has been successful the page will redirect you to the signup page and return a success message. This message will display for 3 seconds and disappear, I did this by using the setTimeout javascript method. If it's not been successful, the page will be refreshed and a message will be displayed indicating your signup has failed.
 
+### User Database Example
 
+I want all admins to have access to a user database, with the ability to Read, Update and Delete users from the application. In order to display a link that's only available to administrators (a link that directs the admins to a table of users), I had to write a small line of Embedded javascript. This line checks the currentusers **Seniority Level** and if it's equal to **Admin** the HTML if displayed in the side bar for the admin to view. 
 
+![admin](/assets/admin-01.png)
+![admin](/assets/admin-02.png)
+![admin](/assets/admin-03.png)
 
-![Auth](/assets/auth.png)
 
 ## Technical Features
 ### Authentication
