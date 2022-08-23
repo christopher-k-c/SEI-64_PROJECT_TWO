@@ -118,9 +118,10 @@ This is the table of users that's displayed when the link is clicked:
 
 ### Key Learnings & Wins
 
-- I implemented a Bootstrap theme for the first time.
-- I implemented Authentication and Authorisation for a full stack web application for the first time.
-
+- Experience implementing a Start-Bootstrap theme for the first time.
+- Experience Implementing Authentication and Authorisation for a full stack web application for the first time.
+- Gained a clearer understanding of EJS templating and embedded javascript.
+- Gained insight into Authentication and Authorisation through Passport, Bcrypt and middleware implementation.
 
 ## Developers
 * [https://www.linkedin.com/in/chriskcarey/](https://www.linkedin.com/in/chriskcarey/)
