@@ -64,9 +64,13 @@ The password is hashed using bcrypt before we try to save the new user object to
 
 I want all admins to have access to a user database, with the ability to Read, Update and Delete users from the application. In order to display a link that's only available to administrators (a link that directs the admins to a table of users), I had to write a small line of Embedded javascript. This line checks the current users **Seniority Level** and if it's equal to **Admin** the HTML is displayed in the side bar for the admin to view.
 
-
-![admin](/assets/admin-01.png)
+This is the hyper link only avaiable to admin users:
 ![admin](/assets/admin-02.png)
+
+This is how the hyper link is displayed, using embedded javascript:
+![admin](/assets/admin-01.png)
+
+This is the table of users that's displayed when the link is clicked:
 ![admin](/assets/admin-03.png)
 
 
