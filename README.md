@@ -1,11 +1,15 @@
 ![General Assembly's Logo](https://camo.githubusercontent.com/603ef5eae7d28900a9678ae96c6c60a9c72f8a059c328b28cf978df999cea1f8/68747470733a2f2f692e696d6775722e636f6d2f6c7a56493364382e706e67)
 # Project: Inventory Control System
-This is a Full Stack Application for micro, small and medium food businesses that could benefit from controlling stock rotation of products and avoid food waste.
+This is a Full Stack Application for micro, small and medium food businesses that could benefit from controlling stock rotation of products and avoid food waste. It is built with Express, Node.js, MongoDB and more, It was a two person project which took 4 days and I was the team lead. Users are able to Sign In, Sign up and Sign out. Authenticated Users hold privileges over non-authenticated users. There are two main categories, Products and Suppliers, each have full CRUD operations available to Authenticated Users. On top of the Express EJS templates that display our content we have implemented two Bootstrap themes, one for the landing page and another for the dashboard.
 
 ## Goal
 There were approximately 5,000 micro, Small and Medium Enterprises in the food and drink sector, according to [gov.uk](https://www.gov.uk/government/statistics/food-statistics-pocketbook/food-statistics-in-your-pocket)
 
 ### Entity Relationship Diagram
+
+
+Here we detail the One to Many relationship a User has with our Supplier and Products. We also detail the access and functionality privileges an admin holds over an employee user.
+
 ![ERD](/assets/ERD-SEI-project-2.jpg)
 
 ### Dashboard wireframe
@@ -22,6 +26,7 @@ There were approximately 5,000 micro, Small and Medium Enterprises in the food a
 * JavaScript
 * jQuery
 * MongoDB
+* Express
 * Node.js
 * Chart.js
 
