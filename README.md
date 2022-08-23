@@ -3,11 +3,10 @@
 This is a Full Stack Application for micro, small and medium food businesses that could benefit from controlling stock rotation of products and avoid food waste. It is built with Express, Node.js, MongoDB and more, It was a two person project which took 4 days and I was the team lead. Users are able to Sign In, Sign up and Sign out. Authenticated Users hold privileges over non-authenticated users. There are two main categories, Products and Suppliers, each have full CRUD operations available to Authenticated Users. On top of the Express EJS templates that display our content we have implemented two Bootstrap themes, one for the landing page and another for the dashboard.
 
 ## Goal
-There were approximately 5,000 micro, Small and Medium Enterprises in the food and drink sector, according to [gov.uk](https://www.gov.uk/government/statistics/food-statistics-pocketbook/food-statistics-in-your-pocket)
+There were approximately 5,000 micro, Small and Medium Enterprises in the food and drink sector, according to [gov.uk](https://www.gov.uk/government/statistics/food-statistics-pocketbook/food-statistics-in-your-pocket), Our aim was to provide these small businesses with an easy to use application.
+
 
 ### Entity Relationship Diagram
-
-
 Here we detail the One to Many relationship a User has with our Supplier and Products. We also detail the access and functionality privileges an admin holds over an employee user.
 
 ![ERD](/assets/ERD-SEI-project-2.jpg)
