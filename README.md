@@ -1,4 +1,8 @@
 ![General Assembly's Logo](https://camo.githubusercontent.com/603ef5eae7d28900a9678ae96c6c60a9c72f8a059c328b28cf978df999cea1f8/68747470733a2f2f692e696d6775722e636f6d2f6c7a56493364382e706e67)
+
+## Try our project
+<a href="https://inventorycontrolsystem02.herokuapp.com/">Deployed Project</a>
+
 # Project: Inventory Control System
 This is a Full Stack Application for micro, small and medium food businesses that could benefit from controlling stock rotation of products and avoid food waste. It is built with Express, Node.js, MongoDB and more, It was a two person project which took 4 days and I was the team lead. Users are able to Sign In, Sign up and Sign out. Authenticated Users hold privileges over non-authenticated users. There are two main categories, Products and Suppliers, each have full CRUD operations available to Authenticated Users. On top of the Express EJS templates that display our content we have implemented two Bootstrap themes, one for the landing page and another for the dashboard.
 
@@ -71,23 +75,23 @@ As team lead I was responsible for merging conflicts and deploying the site to h
 * Show products received per day
 * Pie chart show products assigned per supplier
 
-## Try our project
-<a href="https://inventorycontrolsystem02.herokuapp.com/">Completed Project</a>
 
-#### Features to be added in the future
+### Features to be added in the future
 
 - Reset Password whilst logged out of application
 - Upload profile images
 - Create Company accounts (Only displays data created by the company)
 - Invite team members to join via email functionality
 - Ability for users to import data via csv files
-- Key Learnings 
 
+### Bugs 
 
+- Login alert message works but the logout messaging does not.
 
-Bugs 
-Login alert message works but the logout messaging does not.
+### Key Learnings & Wins
 
+- I implemented a Bootstrap theme for the first time.
+- I implemented Authentication and Athorisation for a full stack web application for the first time.
 
 
 
