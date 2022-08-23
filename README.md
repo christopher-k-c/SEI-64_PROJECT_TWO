@@ -52,6 +52,9 @@ moment, mongoose, nodemon, passport, passport-local
 
 As team lead I was responsible for merging conflicts and deploying the site to heroku. However, my main contribution was in the setting up of the User Authentication and Authorization, utilising Passport an authentication middleware for Node.js and bcrypt a password-hashing function used to encrypt and decrypt user passwords. Sourcing the landing page Bootstrap Theme, User alerts and more.
 
+#### Authentication
+
+![Auth](/assets/Screenshot 2022-08-23 at 13.47.05.png)
 
 ## Technical Features
 ### Authentication
