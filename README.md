@@ -50,7 +50,7 @@ moment, mongoose, nodemon, passport, passport-local
 
 ## Contribution Examples 
 
-As team lead I was responsible for merging conflicts and deploying the site to heroku. However, my main contribution was in the setting up of the User Authentication and Authorization, utilising Passport an authentication middleware for Node.js and bcrypt a password-hashing function used to encrypt and decrypt user passwords. Sourcing the landing page Bootstrap Theme, User alerts and more.
+As team lead I was responsible for merging conflicts and deploying the site to heroku. However, my main contribution was in the setting up of the User Authentication and Authorization, utilising Passport an authentication middleware for Node.js and bcrypt a password-hashing function used to encrypt and decrypt user passwords. In addition to the above contributions, I also built the user profile functionality and sourced the landing pages Bootstrap Theme, implemented the User alerts and more.
 
 ### Sign Up Example
 
