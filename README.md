@@ -91,11 +91,14 @@ As team lead I was responsible for merging conflicts and deploying the site to h
 ### Bugs 
 
 - Login alert message works but the logout messaging does not.
+- When updating or adding a phone number to a user, if the first digit in the phone if a zero it will not save or display. 
 
 ### Key Learnings & Wins
 
 - I implemented a Bootstrap theme for the first time.
-- I implemented Authentication and Athorisation for a full stack web application for the first time.
+- I implemented Authentication and Authorisation for a full stack web application for the first time.
+- Also related to the phone number, there needs to be a min and maximum digit rule applied to the input, and can place as many or as few digits as the user likes into this input.
+
 
 
 
