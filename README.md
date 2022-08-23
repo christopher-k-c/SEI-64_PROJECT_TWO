@@ -45,7 +45,7 @@ moment, mongoose, nodemon, passport, passport-local
 
 ## Contribution Examples 
 
-I was team lead, making me responsible for merging conflicts and deploying the site to heroku. My main contribution was in the setting up of the User Authentication and Authorization, utilising Passport an authentication middleware for Node.js and bcrypt a password-hashing function used to encrypt and decrypt user passwords.
+As team lead I was responsible for merging conflicts and deploying the site to heroku. However, my main contribution was in the setting up of the User Authentication and Authorization, utilising Passport an authentication middleware for Node.js and bcrypt a password-hashing function used to encrypt and decrypt user passwords. Sourcing the landing page Bootstrap Theme, User alerts and more.
 
 
 ## Technical Features
@@ -71,18 +71,24 @@ I was team lead, making me responsible for merging conflicts and deploying the s
 * Show products received per day
 * Pie chart show products assigned per supplier
 
-
-## Unsolved Problems
-
-* Reset Password whilst logged out of application 
-* Upload profile images
-* Create Company accounts (Only displays data created by the company)
-* Invite team members to join via email functionality 
-* Ability for users to import data via csv files
-
-
 ## Try our project
 <a href="https://inventorycontrolsystem02.herokuapp.com/">Completed Project</a>
+
+#### Features to be added in the future
+
+- Reset Password whilst logged out of application
+- Upload profile images
+- Create Company accounts (Only displays data created by the company)
+- Invite team members to join via email functionality
+- Ability for users to import data via csv files
+- Key Learnings 
+
+
+
+Bugs 
+Login alert message works but the logout messaging does not.
+
+
 
 
 ## Developers
