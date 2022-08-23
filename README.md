@@ -54,7 +54,7 @@ As team lead I was responsible for merging conflicts and deploying the site to h
 
 #### Authentication
 
-![Auth](/assets/Screenshot 2022-08-23 at 13.47.05.png)
+![Auth](/assets/auth.png)
 
 ## Technical Features
 ### Authentication
