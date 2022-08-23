@@ -62,7 +62,8 @@ The password is hashed using bcrypt before we try to save the new user object to
 
 ### User Database Example
 
-I want all admins to have access to a user database, with the ability to Read, Update and Delete users from the application. In order to display a link that's only available to administrators (a link that directs the admins to a table of users), I had to write a small line of Embedded javascript. This line checks the currentusers **Seniority Level** and if it's equal to **Admin** the HTML if displayed in the side bar for the admin to view. 
+I want all admins to have access to a user database, with the ability to Read, Update and Delete users from the application. In order to display a link that's only available to administrators (a link that directs the admins to a table of users), I had to write a small line of Embedded javascript. This line checks the current users **Seniority Level** and if it's equal to **Admin** the HTML is displayed in the side bar for the admin to view.
+
 
 ![admin](/assets/admin-01.png)
 ![admin](/assets/admin-02.png)
