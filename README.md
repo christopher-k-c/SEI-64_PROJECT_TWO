@@ -20,6 +20,10 @@ Here we detail the One to Many relationship a User has with our Supplier and Pro
 ![ERD](/assets/ERD-SEI-project-2.jpg)
 
 ### Dashboard wireframe
+
+The first day's focus was mainly planning and concept oriented, we chose the idea, planned our ERD’s, moved onto the wireframing which I was solely responsible for and finally pair programmed the skeleton of the application.
+
+
 ![WireFarmes](/assets/dashboard.png)
 ![WireFarmes](/assets/detail.png)
 
